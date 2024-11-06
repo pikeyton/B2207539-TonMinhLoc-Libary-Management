@@ -4,7 +4,7 @@ class ApiError extends Error {
         this.statusCode = statusCode;
         this.status = String(statusCode).startsWith('4') ? 'Error Client' : 'Error Server';
     }
-  }
+}
   
-  module.exports = ApiError;
+module.exports = ApiError;
   
