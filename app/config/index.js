@@ -3,7 +3,7 @@ const config = {
         port: process.env.PORT || 3000,
     },
     db: {
-        uri: process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/Library-Managerment"
+        uri: process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/Library-Managerment"
     }
   };
   module.exports = config;

@@ -4,11 +4,11 @@ const app = require('./app.js');
 
 async function startServer(){
     try {
-        await mogoose.connect(config.db.uri);
+        await mongoose.connect(config.db.uri);
         console.log("Connected to the database!");
-        const port = config.db.port;
-        app.listen(port, () => {
-            console.log(`Server running on port ${port}`);
+        const PORT = config.app.port;
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
         })
     }
     catch(error){
@@ -16,3 +16,4 @@ async function startServer(){
         process.exit();
     }
 }
+startServer();

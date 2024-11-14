@@ -1,0 +1,488 @@
+[
+    {
+        "publicId": "ABC123",
+        "name": "Nguyễn Văn Hùng",
+        "gender": "Nam",
+        "descripe": "Một tác giả chuyên viết về lịch sử Việt Nam."
+    },
+    {
+        "publicId": "DEF456",
+        "name": "Trần Thị Lan",
+        "gender": "Nữ",
+        "descripe": "Nhà văn nổi tiếng với các tác phẩm văn học thiếu nhi."
+    },
+    {
+        "publicId": "GHI789",
+        "name": "Lê Quang Khải",
+        "gender": "Nam",
+        "descripe": "Một tác giả trẻ viết về khoa học viễn tưởng."
+    },
+    {
+        "publicId": "JKL012",
+        "name": "Phạm Minh Tâm",
+        "gender": "Nam",
+        "descripe": "Chuyên gia về tiểu thuyết phiêu lưu mạo hiểm."
+    },
+    {
+        "publicId": "MNO345",
+        "name": "Đặng Thị Hương",
+        "gender": "Nữ",
+        "descripe": "Nổi tiếng với các bài thơ về tình yêu và cuộc sống."
+    },
+    {
+        "publicId": "PQR678",
+        "name": "Ngô Văn Tuấn",
+        "gender": "Nam",
+        "descripe": "Tác giả chuyên viết sách tự lực, phát triển bản thân."
+    },
+    {
+        "publicId": "STU901",
+        "name": "Bùi Thị Kim Ngân",
+        "gender": "Nữ",
+        "descripe": "Chuyên viết truyện ngắn về gia đình và xã hội."
+    },
+    {
+        "publicId": "VWX234",
+        "name": "Đỗ Văn Phong",
+        "gender": "Nam",
+        "descripe": "Nghiên cứu và viết về văn học dân gian Việt Nam."
+    },
+    {
+        "publicId": "YZA567",
+        "name": "Vũ Minh Anh",
+        "gender": "Nữ",
+        "descripe": "Nổi tiếng với các tác phẩm tản văn hiện đại."
+    },
+    {
+        "publicId": "BCD890",
+        "name": "Hồ Thanh Bình",
+        "gender": "Nam",
+        "descripe": "Tác giả trẻ với các tác phẩm về xã hội đương đại."
+    },
+    {
+        "publicId": "EFG123",
+        "name": "Nguyễn Thị Mai Phương",
+        "gender": "Nữ",
+        "descripe": "Chuyên viết sách về chăm sóc sức khỏe tinh thần."
+    },
+    {
+        "publicId": "HIJ456",
+        "name": "Trần Quang Huy",
+        "gender": "Nam",
+        "descripe": "Tác giả của các sách về lịch sử Á Đông."
+    },
+    {
+        "publicId": "KLM789",
+        "name": "Lê Thị Mỹ Linh",
+        "gender": "Nữ",
+        "descripe": "Nhà văn trẻ với nhiều truyện ngắn về tình yêu tuổi trẻ."
+    },
+    {
+        "publicId": "NOP012",
+        "name": "Phan Minh Tùng",
+        "gender": "Nam",
+        "descripe": "Tác giả nổi bật trong dòng văn học hiện thực."
+    },
+    {
+        "publicId": "QRS345",
+        "name": "Đinh Thị Hạnh",
+        "gender": "Nữ",
+        "descripe": "Chuyên viết về văn hóa và con người Việt Nam."
+    },
+    {
+        "publicId": "TUV678",
+        "name": "Nguyễn Đình Toàn",
+        "gender": "Nam",
+        "descripe": "Nổi tiếng với các sách dạy làm giàu và khởi nghiệp."
+    },
+    {
+        "publicId": "WXY901",
+        "name": "Lương Thị Hoài",
+        "gender": "Nữ",
+        "descripe": "Tác giả của nhiều tác phẩm thơ hiện đại."
+    },
+    {
+        "publicId": "ZAB234",
+        "name": "Đoàn Văn Lâm",
+        "gender": "Nam",
+        "descripe": "Chuyên gia viết sách về nông nghiệp bền vững."
+    },
+    {
+        "publicId": "CDE567",
+        "name": "Hoàng Thị Thanh",
+        "gender": "Nữ",
+        "descripe": "Tác giả nổi tiếng trong văn học thiếu nhi Việt Nam."
+    },
+    {
+        "publicId": "FGH890",
+        "name": "Nguyễn Văn An",
+        "gender": "Nam",
+        "descripe": "Nhà văn viết về các chủ đề khoa học viễn tưởng."
+    },
+    {
+        "publicId": "JKL345",
+        "name": "Nguyễn Thị Thu Hà",
+        "gender": "Nữ",
+        "descripe": "Tác giả nổi tiếng với các tác phẩm văn học lãng mạn."
+    },
+    {
+        "publicId": "MNO678",
+        "name": "Trần Văn Thắng",
+        "gender": "Nam",
+        "descripe": "Chuyên viết tiểu thuyết phiêu lưu và hành động."
+    },
+    {
+        "publicId": "PQR901",
+        "name": "Phạm Thị Kim Chi",
+        "gender": "Nữ",
+        "descripe": "Tác giả chuyên viết truyện ngắn về đời sống người dân vùng cao."
+    },
+    {
+        "publicId": "STU234",
+        "name": "Lê Văn Lộc",
+        "gender": "Nam",
+        "descripe": "Nhà văn trẻ với các truyện ngắn về xã hội."
+    },
+    {
+        "publicId": "VWX567",
+        "name": "Đỗ Minh Trí",
+        "gender": "Nam",
+        "descripe": "Chuyên viết về những câu chuyện phiêu lưu mạo hiểm."
+    },
+    {
+        "publicId": "YZA890",
+        "name": "Vũ Thị Quỳnh",
+        "gender": "Nữ",
+        "descripe": "Nổi tiếng với các tác phẩm về phụ nữ và gia đình."
+    },
+    {
+        "publicId": "BCD123",
+        "name": "Nguyễn Đức Hùng",
+        "gender": "Nam",
+        "descripe": "Chuyên gia viết về kinh tế và chính trị quốc tế."
+    },
+    {
+        "publicId": "EFG456",
+        "name": "Phạm Minh Phương",
+        "gender": "Nữ",
+        "descripe": "Tác giả với nhiều sách hướng dẫn nấu ăn."
+    },
+    {
+        "publicId": "HIJ789",
+        "name": "Trần Thị Bích Ngọc",
+        "gender": "Nữ",
+        "descripe": "Nhà văn nổi tiếng về văn hóa dân gian Việt Nam."
+    },
+    {
+        "publicId": "KLM012",
+        "name": "Lê Hữu Toàn",
+        "gender": "Nam",
+        "descripe": "Tác giả chuyên viết về phong cách sống hiện đại."
+    },
+    {
+        "publicId": "NOP345",
+        "name": "Nguyễn Văn Khải",
+        "gender": "Nam",
+        "descripe": "Tác giả trẻ, viết nhiều về phát triển bản thân."
+    },
+    {
+        "publicId": "QRS678",
+        "name": "Trần Thị Mỹ Hoa",
+        "gender": "Nữ",
+        "descripe": "Nhà văn nổi tiếng trong lĩnh vực truyện ngắn."
+    },
+    {
+        "publicId": "TUV901",
+        "name": "Phan Văn Phúc",
+        "gender": "Nam",
+        "descripe": "Chuyên viết về khoa học và công nghệ."
+    },
+    {
+        "publicId": "WXY234",
+        "name": "Đoàn Thị Minh Hạnh",
+        "gender": "Nữ",
+        "descripe": "Tác giả các cuốn sách về giáo dục gia đình."
+    },
+    {
+        "publicId": "ZAB567",
+        "name": "Lê Văn Bảo",
+        "gender": "Nam",
+        "descripe": "Chuyên gia trong lĩnh vực tâm lý học."
+    },
+    {
+        "publicId": "CDE890",
+        "name": "Nguyễn Thị Phương Thảo",
+        "gender": "Nữ",
+        "descripe": "Tác giả viết về các vấn đề xã hội hiện đại."
+    },
+    {
+        "publicId": "FGH123",
+        "name": "Trần Văn Quang",
+        "gender": "Nam",
+        "descripe": "Nhà văn chuyên viết truyện ngắn và tản văn."
+    },
+    {
+        "publicId": "IJK456",
+        "name": "Phạm Thị Lan Anh",
+        "gender": "Nữ",
+        "descripe": "Tác giả viết về lịch sử và văn hóa."
+    },
+    {
+        "publicId": "LMN789",
+        "name": "Ngô Văn Thịnh",
+        "gender": "Nam",
+        "descripe": "Tác giả nổi bật với các truyện ngắn thực tế."
+    },
+    {
+        "publicId": "OPQ012",
+        "name": "Vũ Minh Thủy",
+        "gender": "Nữ",
+        "descripe": "Chuyên viết về tình yêu và tuổi trẻ."
+    },
+    {
+        "publicId": "RST345",
+        "name": "Phạm Thanh Sơn",
+        "gender": "Nam",
+        "descripe": "Tác giả với các tác phẩm về môi trường và thiên nhiên."
+    },
+    {
+        "publicId": "UVW678",
+        "name": "Nguyễn Thị Thanh Hương",
+        "gender": "Nữ",
+        "descripe": "Tác giả chuyên về các vấn đề xã hội hiện đại."
+    },
+    {
+        "publicId": "XYZ901",
+        "name": "Lê Văn Thành",
+        "gender": "Nam",
+        "descripe": "Nổi tiếng với các cuốn sách về kinh doanh và khởi nghiệp."
+    },
+    {
+        "publicId": "ABC234",
+        "name": "Trần Văn Minh",
+        "gender": "Nam",
+        "descripe": "Chuyên viết về phong cách sống và tư duy."
+    },
+    {
+        "publicId": "DEF567",
+        "name": "Đinh Thị Mai",
+        "gender": "Nữ",
+        "descripe": "Nhà văn với nhiều tác phẩm lãng mạn và trữ tình."
+    },
+    {
+        "publicId": "GHI890",
+        "name": "Lý Văn Nghĩa",
+        "gender": "Nam",
+        "descripe": "Tác giả với nhiều cuốn sách về tài chính cá nhân."
+    },
+    {
+        "publicId": "JKL123",
+        "name": "Phan Minh Hòa",
+        "gender": "Nữ",
+        "descripe": "Chuyên viết về tâm lý học và phát triển bản thân."
+    },
+    {
+        "publicId": "MNO456",
+        "name": "Trần Thị Cẩm Tú",
+        "gender": "Nữ",
+        "descripe": "Nhà văn viết nhiều về giáo dục và nuôi dạy con cái."
+    },
+    {
+        "publicId": "PQR789",
+        "name": "Đỗ Văn Bình",
+        "gender": "Nam",
+        "descripe": "Tác giả chuyên về thể loại phiêu lưu kỳ thú."
+    },
+    {
+        "publicId": "STU012",
+        "name": "Bùi Minh Châu",
+        "gender": "Nữ",
+        "descripe": "Tác giả của nhiều cuốn sách kỹ năng sống."
+    },
+    {
+        "publicId": "VWX345",
+        "name": "Nguyễn Đình Hải",
+        "gender": "Nam",
+        "descripe": "Nhà văn chuyên viết về lịch sử và văn hóa dân tộc."
+    },
+    {
+        "publicId": "XYZ001",
+        "name": "Nguyễn Văn Toán",
+        "gender": "Nam",
+        "descripe": "Chuyên gia về toán học, đặc biệt là đại số và giải tích."
+    },
+    {
+        "publicId": "XYZ002",
+        "name": "Lê Thị Văn",
+        "gender": "Nữ",
+        "descripe": "Nhà văn viết nhiều tiểu thuyết nổi tiếng trong văn học Việt Nam."
+    },
+    {
+        "publicId": "XYZ003",
+        "name": "Trần Sinh Học",
+        "gender": "Nam",
+        "descripe": "Tác giả nổi tiếng với các cuốn sách về sinh học và sinh thái học."
+    },
+    {
+        "publicId": "XYZ004",
+        "name": "Phạm Thị Kinh",
+        "gender": "Nữ",
+        "descripe": "Chuyên gia trong lĩnh vực kinh tế và tài chính cá nhân."
+    },
+    {
+        "publicId": "XYZ005",
+        "name": "Đỗ Minh Chính",
+        "gender": "Nam",
+        "descripe": "Tác giả chuyên về chính trị và lịch sử Việt Nam."
+    },
+    {
+        "publicId": "XYZ006",
+        "name": "Nguyễn Thị Viễn",
+        "gender": "Nữ",
+        "descripe": "Tác giả khoa học viễn tưởng nổi tiếng với các câu chuyện tương lai."
+    },
+    {
+        "publicId": "XYZ007",
+        "name": "Vũ Công Nghệ",
+        "gender": "Nam",
+        "descripe": "Nhà viết sách về công nghệ thông tin và phát triển phần mềm."
+    },
+    {
+        "publicId": "XYZ008",
+        "name": "Lý Văn Vật",
+        "gender": "Nam",
+        "descripe": "Chuyên gia trong lĩnh vực vật lý lý thuyết và thực nghiệm."
+    },
+    {
+        "publicId": "XYZ009",
+        "name": "Bùi Thị Hóa",
+        "gender": "Nữ",
+        "descripe": "Nhà nghiên cứu và tác giả nổi tiếng về hóa học hữu cơ."
+    },
+    {
+        "publicId": "XYZ010",
+        "name": "Nguyễn Quang Lịch",
+        "gender": "Nam",
+        "descripe": "Tác giả các sách về lịch sử văn hóa và con người Việt Nam."
+    },
+    {
+        "publicId": "XYZ011",
+        "name": "Phan Thị Địa",
+        "gender": "Nữ",
+        "descripe": "Tác giả các sách về địa lý và địa lý xã hội."
+    },
+    {
+        "publicId": "XYZ012",
+        "name": "Lương Văn Triết",
+        "gender": "Nam",
+        "descripe": "Chuyên gia về triết học và lý luận xã hội."
+    },
+    {
+        "publicId": "XYZ013",
+        "name": "Đặng Thị Xã",
+        "gender": "Nữ",
+        "descripe": "Nhà văn chuyên viết về xã hội học và các vấn đề xã hội."
+    },
+    {
+        "publicId": "XYZ014",
+        "name": "Ngô Thanh Nghệ",
+        "gender": "Nam",
+        "descripe": "Tác giả nổi tiếng về nghệ thuật và lịch sử nghệ thuật."
+    },
+    {
+        "publicId": "XYZ015",
+        "name": "Lê Phương Ngôn",
+        "gender": "Nữ",
+        "descripe": "Tác giả về ngôn ngữ học và ngôn ngữ xã hội."
+    },
+    {
+        "publicId": "XYZ016",
+        "name": "Nguyễn Minh Tâm",
+        "gender": "Nam",
+        "descripe": "Tác giả các sách về tâm lý học hiện đại."
+    },
+    {
+        "publicId": "XYZ017",
+        "name": "Hoàng Thị Giáo",
+        "gender": "Nữ",
+        "descripe": "Chuyên gia giáo dục với nhiều sách về dạy học."
+    },
+    {
+        "publicId": "XYZ018",
+        "name": "Trần Văn Khoa",
+        "gender": "Nam",
+        "descripe": "Nhà văn viết về khoa học máy tính và trí tuệ nhân tạo."
+    },
+    {
+        "publicId": "XYZ019",
+        "name": "Phạm Y Học",
+        "gender": "Nam",
+        "descripe": "Tác giả nổi tiếng với các cuốn sách về y học và chăm sóc sức khỏe."
+    },
+    {
+        "publicId": "XYZ020",
+        "name": "Bùi Văn Kỹ",
+        "gender": "Nam",
+        "descripe": "Chuyên gia trong lĩnh vực kỹ thuật và cơ khí."
+    },
+    {
+        "publicId": "XYZ021",
+        "name": "Nguyễn Thị Tài Chính",
+        "gender": "Nữ",
+        "descripe": "Tác giả sách về tài chính doanh nghiệp và đầu tư."
+    },
+    {
+        "publicId": "XYZ022",
+        "name": "Lê Văn Kinh Doanh",
+        "gender": "Nam",
+        "descripe": "Tác giả viết sách về kinh doanh và khởi nghiệp."
+    },
+    {
+        "publicId": "XYZ023",
+        "name": "Vũ Thị Phụ Nữ",
+        "gender": "Nữ",
+        "descripe": "Tác giả nổi tiếng về quyền và vị thế phụ nữ trong xã hội."
+    },
+    {
+        "publicId": "XYZ024",
+        "name": "Đỗ Văn Nông",
+        "gender": "Nam",
+        "descripe": "Chuyên gia trong lĩnh vực nông nghiệp và phát triển nông thôn."
+    },
+    {
+        "publicId": "XYZ025",
+        "name": "Nguyễn Thị Văn Hóa",
+        "gender": "Nữ",
+        "descripe": "Tác giả các sách về văn hóa Việt Nam và thế giới."
+    },
+    {
+        "publicId": "XYZ026",
+        "name": "Phan Minh Thể",
+        "gender": "Nam",
+        "descripe": "Tác giả viết về thể thao và phong cách sống lành mạnh."
+    },
+    {
+        "publicId": "XYZ027",
+        "name": "Bùi Công Nghệ",
+        "gender": "Nam",
+        "descripe": "Chuyên gia phát triển sách về công nghệ phần mềm."
+    },
+    {
+        "publicId": "XYZ028",
+        "name": "Trần Văn Giao",
+        "gender": "Nam",
+        "descripe": "Nhà nghiên cứu về giao thông và các hệ thống giao thông hiện đại."
+    },
+    {
+        "publicId": "XYZ029",
+        "name": "Lê Thị Tâm Lý",
+        "gender": "Nữ",
+        "descripe": "Chuyên gia về tâm lý học trẻ em và gia đình."
+    },
+    {
+        "publicId": "XYZ030",
+        "name": "Ngô Văn Địa Lý",
+        "gender": "Nam",
+        "descripe": "Tác giả nhiều cuốn sách về địa lý và biến đổi khí hậu."
+    }    
+]
