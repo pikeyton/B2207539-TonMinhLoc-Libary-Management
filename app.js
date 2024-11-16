@@ -23,6 +23,8 @@ app.get("/", (req, res) => {
 
 app.use('/api/bookBorrowRegistrations', routes.BookBorrowRegistration);
 app.use('/api/bookBorrowTrackings', routes.BookBorrowTracking);
+app.use('/api/bookPurchaseRegistrations', routes.BookPurchaseRegistration);
+app.use('/api/comments', routes.Comment);
 
 app.use('/api/authors', routes.Author);
 app.use('/api/books', routes.Book);

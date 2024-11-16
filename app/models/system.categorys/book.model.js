@@ -38,10 +38,6 @@ const bookSchema = new mongoose.Schema(
             default: 0,
             min: [0, 'Number of loans must be a non-negative number']
         },
-        rating: {
-            type: Number,
-            default: -1,
-        },
         authorIds: [
             {
                 type: mongoose.Schema.Types.ObjectId,

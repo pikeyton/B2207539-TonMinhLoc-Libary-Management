@@ -1,6 +1,8 @@
 
 const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.model');
 const BookBorrowTracking = require('./bookManagement/bookBorrowTracking.model');
+const BookPurchaseRegistration = require('./bookManagement/bookPurchaseRegistration.model');
+const Comment = require('./bookManagement/comment.model');
 
 const Author = require('./system.categorys/author.model');
 const Book = require('./system.categorys/book.model');
@@ -13,6 +15,8 @@ const Staff = require('./users/staff.model');
 module.exports = {
     BookBorrowRegistration,
     BookBorrowTracking,
+    BookPurchaseRegistration,
+    Comment,
 
     Author,
     Book,
