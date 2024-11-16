@@ -1,4 +1,5 @@
-const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.services')
+const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.service');
+const BookBorrowTracking = require('./bookManagement/bookBorrowTracking.service');
 
 const Author = require('./system.categorys/author.service');
 const Book = require('./system.categorys/book.service');
@@ -11,6 +12,7 @@ const Staff = require('./users/staff.service');
 
 module.exports = {
     BookBorrowRegistration,
+    BookBorrowTracking,
     
     Author,
     Book,

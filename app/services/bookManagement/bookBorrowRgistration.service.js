@@ -12,7 +12,7 @@ exports.create = async (bookBorrowRegistration) => {
     await validateReference(bookBorrowRegistration);
     
     bookPrint = await models.BookPrint.findById(bookBorrowRegistration.bookPrintId);
-    if (bookPrint.readerReturnDay){
+    if (bookPrint.readerReturnDate){
         return {message: "The printed book has been borrowed by another reader."};
     }
     if (bookPrint.documentType === "Document Read"){

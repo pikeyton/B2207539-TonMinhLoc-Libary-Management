@@ -1,4 +1,5 @@
 const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.route');
+const BookBorrowTracking = require('./bookManagement/bookBorrowTracking.route')
 
 const Author = require('./system.categorys/author.route')
 const Book = require('./system.categorys/book.route');
@@ -9,6 +10,7 @@ const Reader = require('./users/reader.route');
 const Staff = require('./users/staff.route');
 module.exports = {
     BookBorrowRegistration,
+    BookBorrowTracking,
 
     Author,
     Book,

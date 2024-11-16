@@ -23,6 +23,9 @@ exports.findAll = async (req, res, next) => {
 exports.findByReader = async (req, res, next) => {
     try {
         const data = await services.BookBorrowRegistration.findByReader(req.query.readerId);
+        if (!data) {
+            return res.status(404).json({ message: 'Book borrow registration not found' });
+        }
         res.json(data);
     }
     catch (error) {

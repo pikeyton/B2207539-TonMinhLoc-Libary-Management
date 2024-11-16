@@ -27,7 +27,7 @@ const bookPrintSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    readerReturnDay: {
+    readerReturnDate: {
         type: Date,
         default: null
     }
