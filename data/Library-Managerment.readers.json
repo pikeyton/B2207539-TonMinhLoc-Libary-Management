@@ -12,8 +12,7 @@
   "birthDay": "1990-05-15",
   "gender": "Male",
   "maximumNumberOfBooksBorrowed": 5,
-  "currentNumberOfBooksBorrowed": 0,
-  "reputationScore": 85
+  "currentNumberOfBooksBorrowed": 0
 },
 {
   "_id": {
@@ -29,8 +28,7 @@
   "birthDay": "1985-08-22",
   "gender": "Female",
   "maximumNumberOfBooksBorrowed": 5,
-  "currentNumberOfBooksBorrowed": 0,
-  "reputationScore": 90
+  "currentNumberOfBooksBorrowed": 0
 },
 {
   "_id": {
@@ -46,8 +44,7 @@
   "birthDay": "1993-12-10",
   "gender": "Male",
   "maximumNumberOfBooksBorrowed": 5,
-  "currentNumberOfBooksBorrowed": 0,
-  "reputationScore": 75
+  "currentNumberOfBooksBorrowed": 0
 },
 {
   "_id": {
@@ -63,8 +60,7 @@
   "birthDay": "1995-02-25",
   "gender": "Female",
   "maximumNumberOfBooksBorrowed": 5,
-  "currentNumberOfBooksBorrowed": 0,
-  "reputationScore": 88
+  "currentNumberOfBooksBorrowed": 0
 },
 {
   "_id": {
@@ -80,6 +76,5 @@
   "birthDay": "1998-01-30",
   "gender": "Male",
   "maximumNumberOfBooksBorrowed": 5,
-  "currentNumberOfBooksBorrowed": 0,
-  "reputationScore": 80
+  "currentNumberOfBooksBorrowed": 0
 }]

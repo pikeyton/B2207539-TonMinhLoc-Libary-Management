@@ -57,11 +57,9 @@ exports.BookPrint = async (id) => {
 
 exports.Reader = async (id) => {
     if (!obj.isValid(id)){
-        console.log(id);
         throw new ApiError(404, `Reader Id does not exist`);
     }
     const idExists = await models.Reader.exists({ _id: id});
-    console.log(idExists);
     if (!idExists ||!obj.isValid(id)) {
         throw new ApiError(404, `Reader Id does not exist`);
     }

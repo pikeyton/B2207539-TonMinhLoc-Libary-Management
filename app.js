@@ -21,11 +21,14 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to libary application." });
 }); 
 
+app.use('/api/bookBorrowRegistrations', routes.BookBorrowRegistration);
+
 app.use('/api/authors', routes.Author);
 app.use('/api/books', routes.Book);
 app.use('/api/bookFields', routes.BookField);
 app.use('/api/bookPrints', routes.BookPrint);
 app.use('/api/publishers', routes.Publisher);
+
 app.use('/api/readers', routes.Reader);
 app.use('/api/staffs', routes.Staff);
 
