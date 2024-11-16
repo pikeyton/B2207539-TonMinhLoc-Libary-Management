@@ -4,12 +4,12 @@ const BookBorrowRegistrationSchema = new mongoose.Schema({
     readerId: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Reader',
-        required: true
+        required: [true, "Reader id is required"]
     },
     bookPrintId: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'BookPrint',
-        required: true
+        required: [true, "Book print id is required"]
     },
     borrowRegistryDate: { 
         type: Date,
