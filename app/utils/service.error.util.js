@@ -10,6 +10,11 @@ exports.errorFormat = (error) => {
         const messages = Object.values(error.errors).map(err => err.message);
         throw new ApiError(404, `${messages.join(', ')}`);
     }
+    if (error.name === 'CastError') {
+        const field = error.path;
+        const value = error.value;
+        throw new ApiError(404, `Invalid ${field}: ${value}`);
+    }
     
     throw new ApiError(500, error.message);
 }

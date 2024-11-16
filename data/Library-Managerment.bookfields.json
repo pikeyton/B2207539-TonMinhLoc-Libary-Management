@@ -1,0 +1,37 @@
+[
+  {
+    "_id": {
+      "$oid": "6735c415f874d133fea99450"
+    },
+    "name": "Toán học",
+    "number": 250
+  },
+  {
+    "_id": {
+      "$oid": "6735c415f874d133fea99451"
+    },
+    "name": "Văn học",
+    "number": 320
+  },
+  {
+    "_id": {
+      "$oid": "6735c415f874d133fea99452"
+    },
+    "name": "Sinh học",
+    "number": 150
+  },
+  {
+    "_id": {
+      "$oid": "6735c415f874d133fea99453"
+    },
+    "name": "Kinh tế",
+    "number": 400
+  },
+  {
+    "_id": {
+      "$oid": "6735c415f874d133fea99454"
+    },
+    "name": "Chính trị",
+    "number": 200
+  }
+]

@@ -3,6 +3,13 @@ const validator = require('validator');
 
 const staffSchema = new mongoose.Schema(
     {
+        publicId: {
+            type: String,
+            required: [true, "Public ID is required"],
+            trim: true,
+            unique: true,
+            match: [/^[A-Za-z0-9]{8}$/, "Public ID must be characters, numbers and have 8 characters"]
+        },
         email: {
             type: String,
             required: [true, 'Email staff required'],
@@ -18,7 +25,7 @@ const staffSchema = new mongoose.Schema(
             required: [true, 'Password staff required'],
             minlength: 8,
             validate: {
-                validator: validator.isPassportNumber,
+                validator: validator.isStrongPassword,
                 message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
             }
         },
@@ -75,6 +82,6 @@ const staffSchema = new mongoose.Schema(
     }
 );
 
-const StaffModel = mongoose.model('StaffModel', staffSchema);
+const StaffModel = mongoose.model('Staff', staffSchema);
 
 module.exports = StaffModel;

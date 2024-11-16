@@ -1,7 +1,5 @@
 const models = require('../../models/index.model.js')
 const ApiError = require('../../utils/api.error.util.js');
-const mongoose = require('mongoose');
-const obj = mongoose.Types.ObjectId;
 const err = require('../../utils/service.error.util.js');
 
 exports.create = async (bookField) =>{
@@ -15,15 +13,12 @@ exports.create = async (bookField) =>{
 }
 
 exports.findOne = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book field not found');
-    }
     try {
         const result = await models.BookField.findById(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
@@ -33,15 +28,12 @@ exports.findAll = async () => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
 
 exports.update = async (id, bookFieldData) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book field not found');
-    }
     if (bookFieldData.number) {
         throw new ApiError(404, 'Number field not changed');
     }
@@ -55,14 +47,11 @@ exports.update = async (id, bookFieldData) => {
 }
 
 exports.delete = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book field not found');
-    }
     try {
         const result = await models.BookField.findByIdAndDelete(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }

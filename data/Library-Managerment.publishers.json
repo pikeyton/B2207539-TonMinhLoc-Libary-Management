@@ -1,0 +1,30 @@
+[
+  {
+    "_id": {
+      "$oid": "6735c420f874d133fea99466"
+    },
+    "name": "Nhà Xuất Bản Giáo Dục Việt Nam",
+    "address": "12 Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh"
+  },
+  {
+    "_id": {
+      "$oid": "6735c420f874d133fea99467"
+    },
+    "name": "Nhà Xuất Bản Kim Đồng",
+    "address": "55 Quang Trung, Quận Đống Đa, Hà Nội"
+  },
+  {
+    "_id": {
+      "$oid": "6735c420f874d133fea99468"
+    },
+    "name": "Nhà Xuất Bản Trẻ",
+    "address": "157 Lý Chính Thắng, Quận 3, TP. Hồ Chí Minh"
+  },
+  {
+    "_id": {
+      "$oid": "6735c420f874d133fea99469"
+    },
+    "name": "Nhà Xuất Bản Lao Động",
+    "address": "456 Nguyễn Trãi, Quận Thanh Xuân, Hà Nội"
+  }
+]

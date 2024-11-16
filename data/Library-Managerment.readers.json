@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "67371341f874d133fea997c2"
+  },
+  "publicId": "A123B456",
+  "email": "hoang.anh@example.com",
+  "password": "Password123!",
+  "firstName": "Hoàng",
+  "lastName": "Anh",
+  "phoneNumber": "0912345678",
+  "address": "123 Đường ABC, Quận 1, TP. Hồ Chí Minh",
+  "birthDay": "1990-05-15",
+  "gender": "Male",
+  "maximumNumberOfBooksBorrowed": 5,
+  "currentNumberOfBooksBorrowed": 0,
+  "reputationScore": 85
+},
+{
+  "_id": {
+    "$oid": "67371341f874d133fea997c3"
+  },
+  "publicId": "B234C567",
+  "email": "mai.trang@example.com",
+  "password": "SecurePass1@",
+  "firstName": "Mai",
+  "lastName": "Tràng",
+  "phoneNumber": "0987654321",
+  "address": "456 Đường XYZ, Quận 3, TP. Hồ Chí Minh",
+  "birthDay": "1985-08-22",
+  "gender": "Female",
+  "maximumNumberOfBooksBorrowed": 5,
+  "currentNumberOfBooksBorrowed": 0,
+  "reputationScore": 90
+},
+{
+  "_id": {
+    "$oid": "67371341f874d133fea997c4"
+  },
+  "publicId": "C345D678",
+  "email": "ngoc.hai@example.com",
+  "password": "Pass1234@!",
+  "firstName": "Ngọc",
+  "lastName": "Hải",
+  "phoneNumber": "0901234567",
+  "address": "789 Đường LMN, Quận 7, TP. Hồ Chí Minh",
+  "birthDay": "1993-12-10",
+  "gender": "Male",
+  "maximumNumberOfBooksBorrowed": 5,
+  "currentNumberOfBooksBorrowed": 0,
+  "reputationScore": 75
+},
+{
+  "_id": {
+    "$oid": "67371341f874d133fea997c5"
+  },
+  "publicId": "D456E789",
+  "email": "lan.hien@example.com",
+  "password": "Ph@m1234!",
+  "firstName": "Lan",
+  "lastName": "Hiền",
+  "phoneNumber": "0918765432",
+  "address": "321 Đường PQR, Quận 5, TP. Hồ Chí Minh",
+  "birthDay": "1995-02-25",
+  "gender": "Female",
+  "maximumNumberOfBooksBorrowed": 5,
+  "currentNumberOfBooksBorrowed": 0,
+  "reputationScore": 88
+},
+{
+  "_id": {
+    "$oid": "67371341f874d133fea997c6"
+  },
+  "publicId": "E567F890",
+  "email": "tuan.khai@example.com",
+  "password": "Tuan@1234!",
+  "firstName": "Tuấn",
+  "lastName": "Khải",
+  "phoneNumber": "0923456789",
+  "address": "654 Đường STU, Quận 10, TP. Hồ Chí Minh",
+  "birthDay": "1998-01-30",
+  "gender": "Male",
+  "maximumNumberOfBooksBorrowed": 5,
+  "currentNumberOfBooksBorrowed": 0,
+  "reputationScore": 80
+}]

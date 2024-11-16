@@ -1,182 +1,63 @@
 [
     {
-        "publicId": "XYZ001",
-        "name": "Nguyễn Văn Toán",
-        "gender": "Nam",
-        "descripe": "Chuyên gia về toán học, đặc biệt là đại số và giải tích."
+      "publicId": "B123C456",
+      "email": "nguyen.quang@example.com",
+      "password": "Admin@1234!",
+      "role": "Admin",
+      "firstName": "Nguyễn",
+      "lastName": "Quang",
+      "phoneNumber": "0912345678",
+      "address": "123 Đường ABC, Quận 1, TP. Hồ Chí Minh",
+      "birthDay": "1985-07-10",
+      "gender": "Male"
     },
     {
-        "publicId": "XYZ002",
-        "name": "Lê Thị Văn",
-        "gender": "Nữ",
-        "descripe": "Nhà văn viết nhiều tiểu thuyết nổi tiếng trong văn học Việt Nam."
+      "publicId": "B234D567",
+      "email": "hoang.thao@example.com",
+      "password": "Lib@1234!",
+      "role": "Librarian",
+      "firstName": "Hoàng",
+      "lastName": "Thảo",
+      "phoneNumber": "0987654321",
+      "address": "456 Đường XYZ, Quận 3, TP. Hồ Chí Minh",
+      "birthDay": "1990-03-15",
+      "gender": "Female"
     },
     {
-        "publicId": "XYZ003",
-        "name": "Trần Sinh Học",
-        "gender": "Nam",
-        "descripe": "Tác giả nổi tiếng với các cuốn sách về sinh học và sinh thái học."
+      "publicId": "B345E678",
+      "email": "pham.khanh@example.com",
+      "password": "Admin!1234",
+      "role": "Admin",
+      "firstName": "Phạm",
+      "lastName": "Khánh",
+      "phoneNumber": "0901234567",
+      "address": "789 Đường LMN, Quận 7, TP. Hồ Chí Minh",
+      "birthDay": "1988-12-22",
+      "gender": "Male"
     },
     {
-        "publicId": "XYZ004",
-        "name": "Phạm Thị Kinh",
-        "gender": "Nữ",
-        "descripe": "Chuyên gia trong lĩnh vực kinh tế và tài chính cá nhân."
+      "publicId": "B456F789",
+      "email": "truong.dieu@example.com",
+      "password": "Lib#5678!",
+      "role": "Librarian",
+      "firstName": "Trương",
+      "lastName": "Diệu",
+      "phoneNumber": "0918765432",
+      "address": "321 Đường PQR, Quận 5, TP. Hồ Chí Minh",
+      "birthDay": "1992-09-05",
+      "gender": "Female"
     },
     {
-        "publicId": "XYZ005",
-        "name": "Đỗ Minh Chính",
-        "gender": "Nam",
-        "descripe": "Tác giả chuyên về chính trị và lịch sử Việt Nam."
-    },
-    {
-        "publicId": "XYZ006",
-        "name": "Nguyễn Thị Viễn",
-        "gender": "Nữ",
-        "descripe": "Tác giả khoa học viễn tưởng nổi tiếng với các câu chuyện tương lai."
-    },
-    {
-        "publicId": "XYZ007",
-        "name": "Vũ Công Nghệ",
-        "gender": "Nam",
-        "descripe": "Nhà viết sách về công nghệ thông tin và phát triển phần mềm."
-    },
-    {
-        "publicId": "XYZ008",
-        "name": "Lý Văn Vật",
-        "gender": "Nam",
-        "descripe": "Chuyên gia trong lĩnh vực vật lý lý thuyết và thực nghiệm."
-    },
-    {
-        "publicId": "XYZ009",
-        "name": "Bùi Thị Hóa",
-        "gender": "Nữ",
-        "descripe": "Nhà nghiên cứu và tác giả nổi tiếng về hóa học hữu cơ."
-    },
-    {
-        "publicId": "XYZ010",
-        "name": "Nguyễn Quang Lịch",
-        "gender": "Nam",
-        "descripe": "Tác giả các sách về lịch sử văn hóa và con người Việt Nam."
-    },
-    {
-        "publicId": "XYZ011",
-        "name": "Phan Thị Địa",
-        "gender": "Nữ",
-        "descripe": "Tác giả các sách về địa lý và địa lý xã hội."
-    },
-    {
-        "publicId": "XYZ012",
-        "name": "Lương Văn Triết",
-        "gender": "Nam",
-        "descripe": "Chuyên gia về triết học và lý luận xã hội."
-    },
-    {
-        "publicId": "XYZ013",
-        "name": "Đặng Thị Xã",
-        "gender": "Nữ",
-        "descripe": "Nhà văn chuyên viết về xã hội học và các vấn đề xã hội."
-    },
-    {
-        "publicId": "XYZ014",
-        "name": "Ngô Thanh Nghệ",
-        "gender": "Nam",
-        "descripe": "Tác giả nổi tiếng về nghệ thuật và lịch sử nghệ thuật."
-    },
-    {
-        "publicId": "XYZ015",
-        "name": "Lê Phương Ngôn",
-        "gender": "Nữ",
-        "descripe": "Tác giả về ngôn ngữ học và ngôn ngữ xã hội."
-    },
-    {
-        "publicId": "XYZ016",
-        "name": "Nguyễn Minh Tâm",
-        "gender": "Nam",
-        "descripe": "Tác giả các sách về tâm lý học hiện đại."
-    },
-    {
-        "publicId": "XYZ017",
-        "name": "Hoàng Thị Giáo",
-        "gender": "Nữ",
-        "descripe": "Chuyên gia giáo dục với nhiều sách về dạy học."
-    },
-    {
-        "publicId": "XYZ018",
-        "name": "Trần Văn Khoa",
-        "gender": "Nam",
-        "descripe": "Nhà văn viết về khoa học máy tính và trí tuệ nhân tạo."
-    },
-    {
-        "publicId": "XYZ019",
-        "name": "Phạm Y Học",
-        "gender": "Nam",
-        "descripe": "Tác giả nổi tiếng với các cuốn sách về y học và chăm sóc sức khỏe."
-    },
-    {
-        "publicId": "XYZ020",
-        "name": "Bùi Văn Kỹ",
-        "gender": "Nam",
-        "descripe": "Chuyên gia trong lĩnh vực kỹ thuật và cơ khí."
-    },
-    {
-        "publicId": "XYZ021",
-        "name": "Nguyễn Thị Tài Chính",
-        "gender": "Nữ",
-        "descripe": "Tác giả sách về tài chính doanh nghiệp và đầu tư."
-    },
-    {
-        "publicId": "XYZ022",
-        "name": "Lê Văn Kinh Doanh",
-        "gender": "Nam",
-        "descripe": "Tác giả viết sách về kinh doanh và khởi nghiệp."
-    },
-    {
-        "publicId": "XYZ023",
-        "name": "Vũ Thị Phụ Nữ",
-        "gender": "Nữ",
-        "descripe": "Tác giả nổi tiếng về quyền và vị thế phụ nữ trong xã hội."
-    },
-    {
-        "publicId": "XYZ024",
-        "name": "Đỗ Văn Nông",
-        "gender": "Nam",
-        "descripe": "Chuyên gia trong lĩnh vực nông nghiệp và phát triển nông thôn."
-    },
-    {
-        "publicId": "XYZ025",
-        "name": "Nguyễn Thị Văn Hóa",
-        "gender": "Nữ",
-        "descripe": "Tác giả các sách về văn hóa Việt Nam và thế giới."
-    },
-    {
-        "publicId": "XYZ026",
-        "name": "Phan Minh Thể",
-        "gender": "Nam",
-        "descripe": "Tác giả viết về thể thao và phong cách sống lành mạnh."
-    },
-    {
-        "publicId": "XYZ027",
-        "name": "Bùi Công Nghệ",
-        "gender": "Nam",
-        "descripe": "Chuyên gia phát triển sách về công nghệ phần mềm."
-    },
-    {
-        "publicId": "XYZ028",
-        "name": "Trần Văn Giao",
-        "gender": "Nam",
-        "descripe": "Nhà nghiên cứu về giao thông và các hệ thống giao thông hiện đại."
-    },
-    {
-        "publicId": "XYZ029",
-        "name": "Lê Thị Tâm Lý",
-        "gender": "Nữ",
-        "descripe": "Chuyên gia về tâm lý học trẻ em và gia đình."
-    },
-    {
-        "publicId": "XYZ030",
-        "name": "Ngô Văn Địa Lý",
-        "gender": "Nam",
-        "descripe": "Tác giả nhiều cuốn sách về địa lý và biến đổi khí hậu."
+      "publicId": "B567G890",
+      "email": "le.dinh@example.com",
+      "password": "Tuan@1234!",
+      "role": "Admin",
+      "firstName": "Lê",
+      "lastName": "Đình",
+      "phoneNumber": "0923456789",
+      "address": "654 Đường STU, Quận 10, TP. Hồ Chí Minh",
+      "birthDay": "1995-02-18",
+      "gender": "Male"
     }
-]
+  ]
+  

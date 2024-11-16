@@ -1,0 +1,26 @@
+/*
+{
+  "name": "Lịch Sử Việt Nam Qua Các Thời Kỳ",
+  "price": 220000,
+  "year": 2020,
+  "topics": [
+    "Lịch sử",
+    "Văn hóa"
+  ],
+  "numberOfLoans": 150,
+  "rating": 4.5,
+  "authorIds": [
+    "6735c40bf874d133fea993fe"
+    ,"6735c40bf874d133fea993ff"
+    
+  ],
+  "bookFieldId": "6735c415f874d133fea99454",
+  "publisherId": "6735c420f874d133fea99466"
+}
+*/
+
+
+{
+    "bookId": "673774e2d200b389a982e142",
+    "documentType": "Document Read"
+}

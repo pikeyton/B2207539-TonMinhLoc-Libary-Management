@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "673713a7f874d133fea997c8"
+  },
+  "publicId": "A123B456",
+  "email": "nguyen.quang@example.com",
+  "password": "Admin@1234!",
+  "role": "Admin",
+  "firstName": "Nguyễn",
+  "lastName": "Quang",
+  "phoneNumber": "0912345678",
+  "address": "123 Đường ABC, Quận 1, TP. Hồ Chí Minh",
+  "birthDay": "1985-07-10",
+  "gender": "Male"
+},
+{
+  "_id": {
+    "$oid": "673713a7f874d133fea997c9"
+  },
+  "publicId": "B234C567",
+  "email": "hoang.thao@example.com",
+  "password": "Lib@1234!",
+  "role": "Librarian",
+  "firstName": "Hoàng",
+  "lastName": "Thảo",
+  "phoneNumber": "0987654321",
+  "address": "456 Đường XYZ, Quận 3, TP. Hồ Chí Minh",
+  "birthDay": "1990-03-15",
+  "gender": "Female"
+},
+{
+  "_id": {
+    "$oid": "673713a7f874d133fea997ca"
+  },
+  "publicId": "C345D678",
+  "email": "pham.khanh@example.com",
+  "password": "Admin!1234",
+  "role": "Admin",
+  "firstName": "Phạm",
+  "lastName": "Khánh",
+  "phoneNumber": "0901234567",
+  "address": "789 Đường LMN, Quận 7, TP. Hồ Chí Minh",
+  "birthDay": "1988-12-22",
+  "gender": "Male"
+},
+{
+  "_id": {
+    "$oid": "673713a7f874d133fea997cb"
+  },
+  "publicId": "D456E789",
+  "email": "truong.dieu@example.com",
+  "password": "Lib#5678!",
+  "role": "Librarian",
+  "firstName": "Trương",
+  "lastName": "Diệu",
+  "phoneNumber": "0918765432",
+  "address": "321 Đường PQR, Quận 5, TP. Hồ Chí Minh",
+  "birthDay": "1992-09-05",
+  "gender": "Female"
+},
+{
+  "_id": {
+    "$oid": "673713a7f874d133fea997cc"
+  },
+  "publicId": "E567F890",
+  "email": "le.dinh@example.com",
+  "password": "Tuan@1234!",
+  "role": "Admin",
+  "firstName": "Lê",
+  "lastName": "Đình",
+  "phoneNumber": "0923456789",
+  "address": "654 Đường STU, Quận 10, TP. Hồ Chí Minh",
+  "birthDay": "1995-02-18",
+  "gender": "Male"
+}]

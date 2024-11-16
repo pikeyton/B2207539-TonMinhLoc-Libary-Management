@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "6735c40bf874d133fea993fe"
+  },
+  "publicId": "ABC123",
+  "name": "Nguyễn Văn Hùng",
+  "gender": "Male",
+  "descripe": "Một tác giả chuyên viết về lịch sử Việt Nam."
+},
+{
+  "_id": {
+    "$oid": "6735c40bf874d133fea993ff"
+  },
+  "publicId": "DEF456",
+  "name": "Trần Thị Lan",
+  "gender": "Female",
+  "descripe": "Nhà văn nổi tiếng với các tác phẩm văn học thiếu nhi."
+},
+{
+  "_id": {
+    "$oid": "6735c40bf874d133fea99400"
+  },
+  "publicId": "GHI789",
+  "name": "Lê Quang Khải",
+  "gender": "Male",
+  "descripe": "Một tác giả trẻ viết về khoa học viễn tưởng."
+},
+{
+  "_id": {
+    "$oid": "6735c40bf874d133fea99401"
+  },
+  "publicId": "JKL012",
+  "name": "Phạm Minh Tâm",
+  "gender": "Male",
+  "descripe": "Chuyên gia về tiểu thuyết phiêu lưu mạo hiểm."
+},
+{
+  "_id": {
+    "$oid": "6735c40bf874d133fea99402"
+  },
+  "publicId": "MNO345",
+  "name": "Đặng Thị Hương",
+  "gender": "Female",
+  "descripe": "Nổi tiếng với các bài thơ về tình yêu và cuộc sống."
+}
+]

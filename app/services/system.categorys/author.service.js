@@ -2,7 +2,6 @@ const models = require('../../models/index.model.js')
 const ApiError = require('../../utils/api.error.util.js');
 const err = require('../../utils/service.error.util.js');
 const mongoose = require('mongoose');
-const obj = mongoose.Types.ObjectId;
 
 exports.createAuthor = async (author) => {
     try {
@@ -23,19 +22,16 @@ exports.findByName = async (name) => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 };
 exports.findOne = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Author not found');
-    }
     try {
         const result = await models.Author.findById(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
@@ -45,14 +41,11 @@ exports.findAll = async () => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
 exports.update = async (id, author) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Author not found');
-    }
     try {
         const result = await models.Author.findByIdAndUpdate(id, author, { new: true, runValidators: true });
         return result;
@@ -63,14 +56,11 @@ exports.update = async (id, author) => {
 }
 
 exports.delete = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Author not found');
-    }
     try {
         const result = await models.Author.findByIdAndDelete(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }

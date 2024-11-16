@@ -44,7 +44,7 @@ exports.update = async (req, res, next) => {
     try {
         const data = await services.Publisher.update(req.params.id, req.body);
         if (!data){
-            return new ApiError(404, 'Book not found');
+            return res.status(404).json({ message: 'Book not found' });
         }
         return res.send({ message: 'Book updated successfully' });
     }
@@ -57,7 +57,7 @@ exports.delete = async (req, res, next) => {
     try {
         const data = await services.Book.delete(req.params.id);
         if (!data){
-            return new ApiError(404, 'Book not found');
+            return res.status(404).json({ message: 'Book not found' });
         }
         return res.send({ message: 'Book deleted successfully'} );
     }

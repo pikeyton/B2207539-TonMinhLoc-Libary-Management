@@ -44,7 +44,7 @@ exports.update = async (req, res, next) => {
     try {
         const data = await services.BookField.update(req.params.id, req.body);
         if (!data){
-            return new ApiError(404, 'Book field not found');
+            return res.status(404).json({ message: 'Book field not found' });
         }
         return res.send({ message: 'Book field updated successfully' });
     }
@@ -57,7 +57,7 @@ exports.delete = async (req, res, next) => {
     try {
         const data = await services.BookField.delete(req.params.id);
         if (!data){
-            return new ApiError(404, 'Book field not found');
+            return res.status(404).json({ message: 'Book field not found' });
         }
         return res.send({ message: 'Book field deleted successfully'} );
     }

@@ -1,9 +1,6 @@
-const models = require('../../models/index.model.js')
-const ApiError = require('../../utils/api.error.util.js');
+const models = require('../../models/index.model.js');
 const foreignKeys = require('../../utils/foreignKey.util.js');
 const err = require('../../utils/service.error.util.js');
-const mongoose = require('mongoose');
-const obj = mongoose.Types.ObjectId;
 
 async function validateReference(book){
     await foreignKeys.Author(book.authorIds);
@@ -23,36 +20,33 @@ exports.create = async (book) => {
 }
 
 exports.findOne = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book not found');
-    }
     try {
         console.log(id);
         const result = await models.Book.findById(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
 exports.findByName = async (name) => {
     try {
-        const result = await models.Book.findOne({name: {$regex: name, $opitions: "i" }});
+        const result = await models.Book.find({name: {$regex: name, $options: "i" }});
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
 exports.findByPublicId = async (publicId) => {
     try {
-        const result = await models.Book.findOne({publicId: {$regex: publicId, $opitions: "i"}});
+        const result = await models.Book.find({publicId: {$regex: publicId, $options: "i"}});
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
@@ -62,7 +56,7 @@ exports.findByTopic = async (topic) => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
@@ -74,7 +68,7 @@ exports.findByAuthor = async (authorName) => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
@@ -84,17 +78,14 @@ exports.findAll = async () => {
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 
 exports.update = async (id, book) => {
-    validateReferences(book);
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book not found');
-    }
+    await validateReference(book);
     try {
-        const result = await models.Book.findByIdAndUpdate(id, book, {new: true});
+        const result = await models.Book.findByIdAndUpdate(id, book, {new: true, runValidators: true});
         return result;
     }
     catch (error) {
@@ -103,15 +94,12 @@ exports.update = async (id, book) => {
 }
 
 exports.delete = async (id) => {
-    if (!obj.isValid(id)){
-        throw new ApiError(404, 'Book not found');
-    }
     try {
         const result = await models.Book.findByIdAndDelete(id);
         return result;
     }
     catch (error) {
-        throw new ApiError(500, error.message);
+        throw err.errorFormat(error);
     }
 }
 

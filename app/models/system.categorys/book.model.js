@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const ApiError = require('../../utils/api.error.util')
-const obj = mongoose.Types.ObjectId;
-
 
 const bookSchema = new mongoose.Schema(
     {
@@ -12,11 +9,9 @@ const bookSchema = new mongoose.Schema(
             trim: true,
             match: [/^[A-Za-zà-ỹ0-9\s]+$/, "Book name can only contain alphanumeric characters and spaces"]
         },
-        idPublic: {
+        publicId: {
             type: String,
-            trim: true,
-            unique: true,
-            match: [/^[A-Za-z0-9]{10}$/, "Public ID must be characters, numbers and have 10 characters"]
+            unique: true
         },
         price: {
             type: Number,
@@ -71,7 +66,26 @@ const bookSchema = new mongoose.Schema(
         // },
     }
 );
-
+bookSchema.pre('save', async function (next) {
+    try{
+        const models = require('../index.model');
+        author = await models.Author.findById(this.authorIds[0]);
+        bookField = await models.BookField.findById(this.bookFieldId);
+        let numericalOrder = 1;
+        let publicId = null;
+        while (true){
+            publicId = `${bookField.number}-${author.publicId}.${numericalOrder}`;
+            let book = await models.Book.findOne({publicId});
+            if (!book) break;
+            numericalOrder += 1;
+        }
+        this.publicId = publicId;
+    }
+    catch(error){
+        next(error);
+    }
+    next();
+})
 const BookModel = mongoose.model('Book', bookSchema);
 
 module.exports = BookModel;

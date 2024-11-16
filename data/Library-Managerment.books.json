@@ -1,0 +1,300 @@
+[{
+  "_id": {
+    "$oid": "6737f183c81a0bcab960bc85"
+  },
+  "name": "Lịch Sử Việt Nam Qua Các Thời Kỳ",
+  "price": 220000,
+  "year": 2020,
+  "topics": [
+    "Lịch sử",
+    "Văn hóa"
+  ],
+  "numberOfLoans": 150,
+  "rating": 4.5,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea993fe"
+    },
+    {
+      "$oid": "6735c40bf874d133fea993ff"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99454"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99466"
+  },
+  "publicId": "200-ABC123.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f1d5c81a0bcab960bc8e"
+  },
+  "name": "Chuyện Cổ Tích Việt Nam",
+  "price": 180000,
+  "year": 2018,
+  "topics": [
+    "Văn học",
+    "Tiểu thuyết"
+  ],
+  "numberOfLoans": 200,
+  "rating": 4.7,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea993ff"
+    },
+    {
+      "$oid": "6735c40bf874d133fea99402"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99451"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99467"
+  },
+  "publicId": "320-DEF456.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f1fec81a0bcab960bc97"
+  },
+  "name": "Khám Phá Vũ Trụ",
+  "price": 200000,
+  "year": 2021,
+  "topics": [
+    "Khoa học",
+    "Viễn tưởng"
+  ],
+  "numberOfLoans": 120,
+  "rating": 4.3,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99400"
+    },
+    {
+      "$oid": "6735c40bf874d133fea99401"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99452"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99468"
+  },
+  "publicId": "150-GHI789.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f208c81a0bcab960bca0"
+  },
+  "name": "Cuộc Phiêu Lưu Của Tâm",
+  "price": 210000,
+  "year": 2022,
+  "topics": [
+    "Tiểu thuyết",
+    "Phiêu lưu"
+  ],
+  "numberOfLoans": 180,
+  "rating": 4.6,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99401"
+    },
+    {
+      "$oid": "6735c40bf874d133fea993fe"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99451"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99469"
+  },
+  "publicId": "320-JKL012.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f225c81a0bcab960bca9"
+  },
+  "name": "Những Bài Thơ Về Tình Yêu",
+  "price": 170000,
+  "year": 2019,
+  "topics": [
+    "Thơ",
+    "Tình yêu"
+  ],
+  "numberOfLoans": 250,
+  "rating": 4.8,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99402"
+    },
+    {
+      "$oid": "6735c40bf874d133fea993ff"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99451"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99466"
+  },
+  "publicId": "320-MNO345.1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f26fc81a0bcab960bcbc"
+  },
+  "name": "Kinh Tế Vĩ Mô Lý Thuyết Và Thực Tiễn",
+  "price": 250000,
+  "year": 2023,
+  "topics": [
+    "Kinh tế",
+    "Chính trị"
+  ],
+  "numberOfLoans": 300,
+  "rating": 4.9,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea993fe"
+    },
+    {
+      "$oid": "6735c40bf874d133fea99400"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99453"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99467"
+  },
+  "publicId": "400-ABC123.2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f284c81a0bcab960bcc5"
+  },
+  "name": "Tiểu Thuyết Viễn Tưởng Đế Chế Mới",
+  "price": 220000,
+  "year": 2020,
+  "topics": [
+    "Viễn tưởng",
+    "Khoa học"
+  ],
+  "numberOfLoans": 150,
+  "rating": 4.4,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99400"
+    },
+    {
+      "$oid": "6735c40bf874d133fea99402"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99452"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99468"
+  },
+  "publicId": "150-GHI789.2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f294c81a0bcab960bcce"
+  },
+  "name": "Vượt Qua Thử Thách",
+  "price": 190000,
+  "year": 2021,
+  "topics": [
+    "Phiêu lưu",
+    "Hành động"
+  ],
+  "numberOfLoans": 130,
+  "rating": 4.5,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99401"
+    },
+    {
+      "$oid": "6735c40bf874d133fea993fe"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99451"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99469"
+  },
+  "publicId": "320-JKL012.2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f2a2c81a0bcab960bcdc"
+  },
+  "name": "Tình Yêu Và Cuộc Sống Những Cảm Xúc Đong Đầy",
+  "price": 160000,
+  "year": 2018,
+  "topics": [
+    "Thơ",
+    "Tình yêu"
+  ],
+  "numberOfLoans": 200,
+  "rating": 4.3,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea99402"
+    },
+    {
+      "$oid": "6735c40bf874d133fea993ff"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99451"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99466"
+  },
+  "publicId": "320-MNO345.2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737f2adc81a0bcab960bce5"
+  },
+  "name": "Tương Lai Kinh Tế Việt Nam",
+  "price": 230000,
+  "year": 2022,
+  "topics": [
+    "Kinh tế",
+    "Chính trị"
+  ],
+  "numberOfLoans": 110,
+  "rating": 4.6,
+  "authorIds": [
+    {
+      "$oid": "6735c40bf874d133fea993fe"
+    },
+    {
+      "$oid": "6735c40bf874d133fea99400"
+    }
+  ],
+  "bookFieldId": {
+    "$oid": "6735c415f874d133fea99453"
+  },
+  "publisherId": {
+    "$oid": "6735c420f874d133fea99469"
+  },
+  "publicId": "400-ABC123.3",
+  "__v": 0
+}]

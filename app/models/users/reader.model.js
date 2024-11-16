@@ -3,6 +3,13 @@ const validator = require('validator');
 
 const readerSchema = new mongoose.Schema(
     {
+        publicId: {
+            type: String,
+            required: [true, "Public ID is required"],
+            trim: true,
+            unique: true,
+            match: [/^[A-Za-z0-9]{8}$/, "Public ID must be characters, numbers and have 8 characters"]
+        },
         email: {
             type: String,
             required: [true, 'Email reader required'],
@@ -18,7 +25,7 @@ const readerSchema = new mongoose.Schema(
             required: [true, 'Password reader required'],
             minlength: 8,
             validate: {
-                validator: validator.isPassportNumber,
+                validator: validator.isStrongPassword,
                 message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
             }
         },
@@ -64,30 +71,27 @@ const readerSchema = new mongoose.Schema(
         },
         gender: {
             type: String,
-            enum: ['Male', 'Female', 'Other'],
+            enum: {
+                values: ['Male', 'Female', 'Other'],
+                message: "Gender must be 'Male', 'Female', or 'Other'"
+            },
             required: [true, 'Gender reader required']
         },
         maximumNumberOfBooksBorrowed: {
             type: Number,
-            required: true,
+            default: 5,
             min: 1,
             max: 10
         },
         currentNumberOfBooksBorrowed: {
             type: Number,
-            required: true,
+            default: 0,
             min: 0,
             max: 10
-        },
-        reputationScore: {
-            type: Number,
-            required: true,
-            min: 0,
-            max: 100
         }
     }
 );
 
-const ReaderModel = mongoose.model('ReaderModel', readerSchema);
+const ReaderModel = mongoose.model('Reader', readerSchema);
 
 module.exports = ReaderModel;

@@ -20,7 +20,7 @@ const authorSchema = new mongoose.Schema(
             type: String,
             required: [true, "Gender is required"],
             enum: {
-                values: ['Nam', 'Nữ', 'Khác'],
+                values: ['Male', 'Female', 'Other'],
                 message: "Gender must be 'Male', 'Female', or 'Other'"
             }
         },
