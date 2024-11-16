@@ -1,4 +1,4 @@
-models = require('../../models/index.model');
+const models = require('../../models/index.model');
 const err = require('../../utils/service.error.util.js');
 const foreignKeys = require('../../utils/foreignKey.util.js');
 
