@@ -1,9 +1,9 @@
 const models = require('../../models/index.model.js')
 const err = require('../../utils/service.error.util.js');
 
-exports.create = async (reader) => {
+exports.create = async (staff) => {
     try {
-        const result = await models.Reader.create(reader);
+        const result = await models.Staff.create(staff);
         return result;
     }
     catch (error) {
@@ -14,7 +14,7 @@ exports.create = async (reader) => {
 
 exports.findAll = async () => {
     try {
-        const result = await models.Reader.find();
+        const result = await models.Staff.find();
         return result;
     }
     catch (error) {
@@ -24,7 +24,7 @@ exports.findAll = async () => {
 
 exports.findByPublicId = async (publicId) => {
     try {
-        const result = await models.Reader.find({ publicId: {$regex: publicId, $options: "i"} });
+        const result = await models.Staff.find({ publicId: {$regex: publicId, $options: "i"} });
         return result;
     }
     catch (error) {
@@ -32,9 +32,20 @@ exports.findByPublicId = async (publicId) => {
     }
 }
 
-exports.update = async (id, reader) => {
+
+exports.findByEmail = async (email) => {
     try {
-        const result = await models.Reader.findByIdAndUpdate(id, reader, {new: true, runValidators: true});
+        const result = await models.Staff.find({ email: {$regex: email, $options: "i"} });
+        return result;
+    }
+    catch (error) {
+        throw err.errorFormat(error);
+    }
+}
+
+exports.update = async (id, staff) => {
+    try {
+        const result = await models.Staff.findByIdAndUpdate(id, staff, {new: true, runValidators: true});
         return result;
     }
     catch (error) {
@@ -44,7 +55,7 @@ exports.update = async (id, reader) => {
 
 exports.delete = async (id) => {
     try {
-        const result = await models.Reader.findByIdAndDelete(id);
+        const result = await models.Staff.findByIdAndDelete(id);
         return result;
     }
     catch (error) {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const staffSchema = new mongoose.Schema(
+const readerSchema = new mongoose.Schema(
     {
         publicId: {
             type: String,
@@ -12,9 +12,9 @@ const staffSchema = new mongoose.Schema(
         },
         email: {
             type: String,
-            required: [true, 'Email staff required'],
+            required: [true, 'Email reader required'],
             trim: true,
-            unique: [true, 'Email staff unique'],
+            unique: [true, 'Email reader unique'],
             validate: {
                 validator: validator.isEmail,
                 message: 'Invalid email format.'
@@ -22,53 +22,43 @@ const staffSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: [true, 'Password staff required'],
-            minlength: 8,
-            validate: {
-                validator: validator.isStrongPassword,
-                message: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
-            }
-        },
-        role: {
-            type: String,
-            enum: ['Admin', 'Librarian'],
-            required: true
+            required: [true, 'Password reader required']
         },
         firstName: {
             type: String,
-            required: [true, 'First name staff required'],
+            required: [true, 'First name reader required'],
             trim: true,
             minlength: 1,
             maxlength: 20
         },
         lastName: {
             type: String,
-            required: [true, 'Last name staff required'],
+            required: [true, 'Last name reader required'],
             trim: true,
             minlength: 1,
             maxlength: 50
         },
         phoneNumber: {
             type: String,
-            required: [true, 'Phone number staff required'],
+            required: [true, 'Phone number reader required'],
             trim: true,
             validate: {
                 validator: function(value) {
-                    return validator.isMobilePhone(value, 'vi-VN');
+                    return validator.isMobilePhone(value, 'vi-VN'); // Kiểm tra số điện thoại theo định dạng Việt Nam
                 },
                 message: 'Invalid phone number format.'
             },
         },
         address: {
             type: String,
-            required: [true, 'Address staff required'],
+            required: [true, 'Address reader required'],
             trim: true,
             minlength: 5,
             maxlength: 100
         },
         birthDay: {
             type: Date,
-            required: [true, 'Birthday staff required'],
+            required: [true, 'Birthday reader required'],
             validate: {
                 validator: validator.isDate,
                 message: 'Invalid date format.'
@@ -76,12 +66,27 @@ const staffSchema = new mongoose.Schema(
         },
         gender: {
             type: String,
-            enum: ['Male', 'Female', 'Other'],
-            required: [true, 'Gender staff required']
+            enum: {
+                values: ['Male', 'Female', 'Other'],
+                message: "Gender must be 'Male', 'Female', or 'Other'"
+            },
+            required: [true, 'Gender reader required']
         },
+        maximumNumberOfBooksBorrowed: {
+            type: Number,
+            default: 5,
+            min: 1,
+            max: 10
+        },
+        currentNumberOfBooksBorrowed: {
+            type: Number,
+            default: 0,
+            min: 0,
+            max: 10
+        }
     }
 );
 
-const StaffModel = mongoose.model('Staff', staffSchema);
+const ReaderModel = mongoose.model('Reader', readerSchema);
 
-module.exports = StaffModel;
+module.exports = ReaderModel;
