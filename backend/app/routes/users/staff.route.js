@@ -9,6 +9,7 @@ router.route('/')
     .post(controllers.Staff.create)
 
 router.route('/:id')
+    .get(controllers.Staff.findOne)
     .put(controllers.Staff.update)
     .delete(controllers.Staff.delete);
 

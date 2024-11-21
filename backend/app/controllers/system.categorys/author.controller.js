@@ -5,13 +5,14 @@ const ApiError = require('../../utils/api.error.util.js');
 
 exports.create = async (req, res, next) => {
     try {
-        const data = await services.Author.createAuthor(req.body);
+        const data = await services.Author.create(req.body);
         res.status(201).json({
             message: 'Author created successfully',
             data: data,
         });
     }
     catch (error) {
+        console.error(error);
         next(error);
     }
 };

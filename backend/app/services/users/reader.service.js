@@ -7,7 +7,6 @@ exports.create = async (reader) => {
         return result;
     }
     catch (error) {
-        console.log(error);
         throw err.errorFormat(error);
     }
 }
@@ -22,9 +21,19 @@ exports.findAll = async () => {
     }
 }
 
+exports.findOne = async (id) => {
+    try {
+        const result = await models.Reader.findById(id);
+        return result;
+    }
+    catch (error) {
+        throw err.errorFormat(error);
+    }
+}
+
 exports.findByPublicId = async (publicId) => {
     try {
-        const result = await models.Reader.find({ publicId: {$regex: publicId, $options: "i"} });
+        const result = await models.Reader.findOne({ publicId: publicId });
         return result;
     }
     catch (error) {
@@ -34,7 +43,7 @@ exports.findByPublicId = async (publicId) => {
 
 exports.findByEmail = async (email) => {
     try {
-        const result = await models.Reader.find({ email: {$regex: email, $options: "i"} });
+        const result = await models.Reader.findOne({ email: {$regex: email, $options: "i"} });
         return result;
     }
     catch (error) {

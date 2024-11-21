@@ -62,7 +62,17 @@ exports.findAll = async () => {
 
 exports.findByReader = async (readerId) => {
     try {
-        const result = await models.BookBorrowRegistration.find({ readerId: readerId });
+        const result = await models.BookBorrowRegistration.find({ readerId: readerId })
+        .populate("readerId") 
+        .populate({
+            path: "bookPrintId",
+            populate: {
+              path: "bookId", 
+              select: [
+                "name", "publicId",
+              ],  
+            }
+          });;
         return result;
     }
     catch (error) {

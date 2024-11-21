@@ -9,6 +9,7 @@ const BookField = require('./system.categorys/bookField.controller');
 const BookPrint = require('./system.categorys/bookPrint.controller');
 const Publisher = require('./system.categorys/publisher.controller');
 
+const Auth = require('./users/auth.controller');
 const Reader = require('./users/reader.controller');
 const Staff = require('./users/staff.controller');
 
@@ -24,6 +25,7 @@ module.exports = {
     BookPrint,
     Publisher,
     
+    Auth,
     Reader,
     Staff,
 }

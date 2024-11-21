@@ -1,18 +1,20 @@
 // Thư viện
 const express = require('express');
 const cors = require('cors'); // Truy cập miền khác 1 cách an toàn
-//const cookieParser = require('cookie-parser')
-//const dotenv = require('dotenv');
-//const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+require('dotenv').config();
+
+
 const routes = require('./app/routes/index.route.js');
 
 // Xử lí lỗi
-const ApiError = require('./app/utils/api.error.util');
+const ApiError = require('./app/utils/api.error.util.js');
 
 const app = express();
 
 
-//app.use(cookieParser());
+
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +34,7 @@ app.use('/api/bookFields', routes.BookField);
 app.use('/api/bookPrints', routes.BookPrint);
 app.use('/api/publishers', routes.Publisher);
 
+app.use('/api/auths', routes.Auth);
 app.use('/api/readers', routes.Reader);
 app.use('/api/staffs', routes.Staff);
 

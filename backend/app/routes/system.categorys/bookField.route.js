@@ -1,5 +1,6 @@
 const express = require('express');
 const controllers = require('../../controllers/index.controller');
+const auth = require('../../utils/auth.util');
 
 const router = express.Router();
 
@@ -9,7 +10,7 @@ router.route('/')
 
 router.route('/:id')
     .get(controllers.BookField.findOne)
-    .put(controllers.BookField.update)
-    .delete(controllers.BookField.delete);
+    .put(auth.staff, controllers.BookField.update)
+    .delete(auth.staff, controllers.BookField.delete);
 
 module.exports = router;

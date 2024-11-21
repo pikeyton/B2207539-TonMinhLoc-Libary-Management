@@ -1,11 +1,13 @@
 const express = require('express');
 const controllers = require('../../controllers/index.controller');
 
+const auth = require('../../utils/auth.util');
+
 const router = express.Router();
 
 router.route('/')
     .get(controllers.Author.findAll)
-    .post(controllers.Author.create);
+    .post(auth.staff, controllers.Author.create);
 
 
 router.route('/search')
@@ -13,7 +15,7 @@ router.route('/search')
 
 router.route('/:id')
     .get(controllers.Author.findOne)
-    .put(controllers.Author.update)
-    .delete(controllers.Author.delete);
+    .put(auth.staff, controllers.Author.update)
+    .delete(auth.staff, controllers.Author.delete);
 
 module.exports = router;

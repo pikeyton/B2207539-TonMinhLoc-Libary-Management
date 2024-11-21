@@ -25,6 +25,11 @@ exports.create = async (bookBorrowTracking) => {
         return {message: "The reader has reached the maximum number of books borrowed."};
     }
 
+    const yourSignUp = await models.BookBorrowRegistration.findOne({bookPrintId: bookBorrowTracking.bookPrintId});
+    if (yourSignUp && yourSignUp.readerId != bookBorrowTracking.readerId){
+        return {message: "The book is already registration borrowed by another reader."};
+    }
+
 
     try {
         const result = await models.BookBorrowTracking.create(bookBorrowTracking);
@@ -33,12 +38,15 @@ exports.create = async (bookBorrowTracking) => {
                 bookPrintId: bookBorrowTracking.bookPrintId,
                 readerId: bookBorrowTracking.readerId,
             })
-            console.log(bookBorrowRgistration);
             if (bookBorrowRgistration){
                 await models.BookBorrowRegistration.findByIdAndDelete(bookBorrowRgistration._id);
             }
             bookPrint.readerReturnDate = result.dueDate;
             await bookPrint.save();
+
+            book = await models.Book.findById(bookPrint.bookId);
+            book.numberOfLoans += 1;
+            await book.save();
 
             reader.currentNumberOfBooksBorrowed += 1;
             await reader.save();
@@ -52,7 +60,18 @@ exports.create = async (bookBorrowTracking) => {
 
 exports.findAll = async () => {
     try {
-        const result = await models.BookBorrowTracking.find();
+        const result = await models.BookBorrowTracking.find({returnedDate: null})
+        .populate("readerId")  
+        .populate("staffId")
+        .populate({
+            path: "bookPrintId",
+            populate: {
+              path: "bookId", 
+              select: [
+                "name", "publicId",
+              ],  
+            }
+          });
         return result;
     }
     catch (error) {
@@ -62,7 +81,18 @@ exports.findAll = async () => {
 
 exports.findByReader = async (readerId) => {
     try {
-        const result = await models.BookBorrowTracking.find({ readerId: readerId });
+        const result = await models.BookBorrowTracking.find({ readerId: readerId })
+        .populate("readerId")  
+        .populate("staffId")
+        .populate({
+            path: "bookPrintId",
+            populate: {
+              path: "bookId", 
+              select: [
+                "name", "publicId",
+              ],  
+            }
+          });
         return result;
     }
     catch (error) {
@@ -90,7 +120,17 @@ exports.findOverdueBooks = async () => {
         const overdueBooks = await models.BookBorrowTracking.find({
             dueDate: { $lt: new Date() }, 
             returnedDate: null
-        })
+        }).populate("readerId")  
+        .populate("staffId")
+        .populate({
+            path: "bookPrintId",
+            populate: {
+              path: "bookId", 
+              select: [
+                "name", "publicId",
+              ],  
+            }
+          });
         return overdueBooks;
     }
     catch (error) {
@@ -105,8 +145,8 @@ exports.returnBook = async (readerId, bookPrintId) => {
         const bookBorrowTracking = await models.BookBorrowTracking.findOne({
             bookPrintId: bookPrintId,
             readerId: readerId,
+            returnedDate: null
         })
-        console.log(bookBorrowTracking);
         if (!bookBorrowTracking) {
             return {message: "The book borrow tracking does not exist."};
         }
@@ -128,22 +168,19 @@ exports.returnBook = async (readerId, bookPrintId) => {
     }
 }
 
-exports.renewBook = async (readerId, bookPrintId) => {
-    await foreignKey.Reader(readerId);
-    await foreignKey.BookPrint(bookPrintId);
+exports.renewBook = async (id) => {
     try {
-        const bookBorrowTracking = await models.BookBorrowTracking.findOne({
-            readerId: readerId,
-            bookPrintId: bookPrintId,
-        });
+        
+        const bookBorrowTracking = await models.BookBorrowTracking.findById(id);
+        console.log(bookBorrowTracking)
         if (!bookBorrowTracking) {
             return {message: "The book borrow tracking does not exist."};
         }
         bookBorrowTracking.dueDate = new Date(bookBorrowTracking.dueDate.getTime() + 7 * 24 * 60 * 60 * 1000);
-        console.log(bookBorrowTracking.dueDate)
         await bookBorrowTracking.save();
         
-        const bookPrint = await models.BookPrint.findById(bookPrintId);
+        console.log(bookBorrowTracking)
+        const bookPrint = await models.BookPrint.findById(bookBorrowTracking.bookPrintId);
         bookPrint.readerReturnDate = bookBorrowTracking.dueDate;
         await bookPrint.save();
         return {message: "Book print has been renewed"};

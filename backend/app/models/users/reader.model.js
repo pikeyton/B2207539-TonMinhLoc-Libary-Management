@@ -48,6 +48,7 @@ const readerSchema = new mongoose.Schema(
                 },
                 message: 'Invalid phone number format.'
             },
+            unique: true
         },
         address: {
             type: String,

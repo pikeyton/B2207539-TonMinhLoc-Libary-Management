@@ -11,17 +11,17 @@ const authorSchema = new mongoose.Schema(
         },
         name: {
             type: String,
-            required: [true, "Last name is required"],
+            required: [true, "Name is required"],
             trim: true,
-            maxlength: [50, "Last name must be less than 50 characters"],
-            match: [/^[A-Za-zÀ-ỹ\s]+$/, "Last name must contain only alphabetic characters, including accents"]
+            maxlength: [50, "Name must be less than 50 characters"],
+            match: [/^[A-Za-zÀ-ỹ\s]+$/, "Name must contain only alphabetic characters, including accents"]
         },
         gender: {
             type: String,
             required: [true, "Gender is required"],
             enum: {
-                values: ['Male', 'Female', 'Other'],
-                message: "Gender must be 'Male', 'Female', or 'Other'"
+                values: ['Male', 'Female'],
+                message: "Gender must be 'Male', 'Female'"
             }
         },
         descripe: {

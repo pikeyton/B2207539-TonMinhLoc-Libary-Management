@@ -9,11 +9,12 @@ router.route('/')
     .post(controllers.Reader.create)
 
 router.route('/:id')
+    .get(controllers.Reader.findOne)
     .put(controllers.Reader.update)
     .delete(controllers.Reader.delete);
 
 router.route('/search')
-    .get(controllers.Reader.findByPublicId);
+    .post(controllers.Reader.findByPublicId);
 
 
 module.exports = router;

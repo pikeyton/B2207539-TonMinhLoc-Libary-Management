@@ -7,7 +7,6 @@ exports.create = async (staff) => {
         return result;
     }
     catch (error) {
-        console.log(error);
         throw err.errorFormat(error);
     }
 }
@@ -15,6 +14,16 @@ exports.create = async (staff) => {
 exports.findAll = async () => {
     try {
         const result = await models.Staff.find();
+        return result;
+    }
+    catch (error) {
+        throw err.errorFormat(error);
+    }
+}
+
+exports.findOne = async (id) => {
+    try {
+        const result = await models.Staff.findById(id);
         return result;
     }
     catch (error) {
@@ -35,7 +44,7 @@ exports.findByPublicId = async (publicId) => {
 
 exports.findByEmail = async (email) => {
     try {
-        const result = await models.Staff.find({ email: {$regex: email, $options: "i"} });
+        const result = await models.Staff.findOne({ email: {$regex: email, $options: "i"} });
         return result;
     }
     catch (error) {

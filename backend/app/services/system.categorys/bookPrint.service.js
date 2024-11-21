@@ -48,7 +48,7 @@ exports.findAll = async () => {
 
 exports.findByBook = async (bookId) => {
     try {
-        const result = await models.BookPrint.find({ bookId: { $regex: bookId, options: "i"}});
+        const result = await models.BookPrint.find({ bookId: bookId});
         return result;
     }
     catch (error) {

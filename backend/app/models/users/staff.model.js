@@ -26,7 +26,8 @@ const staffSchema = new mongoose.Schema(
         },
         role: {
             type: String,
-            enum: ['Admin', 'Librarian'],
+            enum: ['admin', 'staff'],
+            default: 'staff',
             required: true
         },
         firstName: {
@@ -53,6 +54,7 @@ const staffSchema = new mongoose.Schema(
                 },
                 message: 'Invalid phone number format.'
             },
+            unique: true
         },
         address: {
             type: String,
@@ -71,7 +73,7 @@ const staffSchema = new mongoose.Schema(
         },
         gender: {
             type: String,
-            enum: ['Male', 'Female', 'Other'],
+            enum: ['Male', 'Female'],
             required: [true, 'Gender staff required']
         },
     }

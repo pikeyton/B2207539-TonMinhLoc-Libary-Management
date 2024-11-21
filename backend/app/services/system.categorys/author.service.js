@@ -3,7 +3,7 @@ const ApiError = require('../../utils/api.error.util.js');
 const err = require('../../utils/service.error.util.js');
 const mongoose = require('mongoose');
 
-exports.createAuthor = async (author) => {
+exports.create = async (author) => {
     try {
         const result = await models.Author.create(author);
         return result;
@@ -56,6 +56,12 @@ exports.update = async (id, author) => {
 }
 
 exports.delete = async (id) => {
+    const books = await models.Book.find({ authorIds: { $in: [id] } });
+
+    if (books.length !== 0) {
+        throw new ApiError(400, "Cannot delete author while there are books by this author.");
+    }
+
     try {
         const result = await models.Author.findByIdAndDelete(id);
         return result;

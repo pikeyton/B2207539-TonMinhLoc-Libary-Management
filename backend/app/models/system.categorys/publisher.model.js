@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 
 const publisherSchema = new mongoose.Schema(
     {
+        publicId: {
+            type: String,
+            required: [true, 'Public ID is required'],
+            trim: true,
+            unique: true,
+            match: [/^[A-Za-z0-9]{6}$/, 'Public ID must be characters, numbers and have 6 characters']
+        },
         name: {
             type: String,
             required: [true, 'Publisher name is required'],

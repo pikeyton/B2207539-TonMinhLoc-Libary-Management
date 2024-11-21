@@ -8,7 +8,7 @@ async function validateReference(comment){
 }
 
 exports.create = async (comment) => {
-    await validateReference(comment);
+    await validateReference(comment);    
     const myComment = await models.Comment.findOne({
         readerId: comment.readerId,
         bookId: comment.bookId
@@ -18,10 +18,12 @@ exports.create = async (comment) => {
     }
 
     try {
-        const result = await models.Comment.create(comment);
+        const result = (await models.Comment.create(comment));
+        data = await models.Comment.findById(result._id).populate("readerId");
+        console.log(data);
         return {
             message: 'Comment created successfully',
-            data: result,
+            data: data,
         };
     }
     catch (error) {
@@ -31,7 +33,7 @@ exports.create = async (comment) => {
 
 exports.findByBook = async (bookId) => {
     try {
-        const result = await models.Comment.find({ bookId: bookId });
+        const result = await models.Comment.find({ bookId: bookId }).populate('readerId');
         return result;
     }
     catch (error) {

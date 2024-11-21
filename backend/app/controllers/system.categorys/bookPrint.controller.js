@@ -16,11 +16,8 @@ exports.create = async (req, res, next) => {
 
 exports.findByBook = async (req, res, next) => {
     try {
-        const data = await services.BookPrint.findByBook(req.params.bookId);
-        res.json({
-            message: 'Book prints found successfully',
-            data: data,
-        });
+        const data = await services.BookPrint.findByBook(req.body.bookId);
+        res.json(data);
     } catch (error) {
         next(error);
     }

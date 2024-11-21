@@ -8,22 +8,78 @@ async function validateReference(book){
     await foreignKeys.Publisher(book.publisherId);
 }
 
-exports.create = async (book) => {
+
+
+
+exports.create = async (book, file) => {
+    let parsedAuthorIds;
+    if (typeof book.authorIds === "string") {
+      try {
+        parsedAuthorIds = JSON.parse(book.authorIds);
+      } catch (error) {
+        return res.status(400).json({ message: "Invalid JSON format for authorIds." });
+      }
+    } else {
+      parsedAuthorIds = book.authorIds;
+    }
+    book.authorIds = parsedAuthorIds
+    await validateReference(book); 
+    try {
+        if (file) {
+            book.image = file.buffer; 
+        }
+
+        const result = await models.Book.create(book);
+
+        return result;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error while creating book');
+    }
+};
+
+exports.update = async (id, book, file) => {
+    let parsedAuthorIds;
+    if (typeof book.authorIds === "string") {
+      try {
+        parsedAuthorIds = JSON.parse(book.authorIds);
+      } catch (error) {
+        return res.status(400).json({ message: "Invalid JSON format for authorIds." });
+      }
+    } else {
+      parsedAuthorIds = book.authorIds;
+    }
+    book.authorIds = parsedAuthorIds
+    console.log(book)
+    await validateReference(book); 
+    if (file) {
+        book.image = file.buffer; 
+    }
     await validateReference(book);
     try {
-        const result = await models.Book.create(book);
+        const result = await models.Book.findByIdAndUpdate(id, book, {new: true, runValidators: true});
         return result;
     }
     catch (error) {
-        err.errorFormat(error);
+        throw err.errorFormat(error);
     }
 }
 
 exports.findOne = async (id) => {
     try {
-        console.log(id);
-        const result = await models.Book.findById(id);
-        return result;
+        const result = await models.Book.findById(id)
+            .populate('authorIds', 'name')
+            .populate('bookFieldId', 'name')
+            .populate('publisherId', 'name');
+
+        // Chuyển đổi dữ liệu sang đối tượng và xử lý ảnh Base64
+        const bookObj = result.toObject();
+
+        if (bookObj.image) {
+            bookObj.image = `data:image/jpeg;base64,${bookObj.image.toString('base64')}`;
+        }
+
+        return bookObj;
     }
     catch (error) {
         throw err.errorFormat(error);
@@ -50,16 +106,6 @@ exports.findByPublicId = async (publicId) => {
     }
 }
 
-exports.findByTopic = async (topic) => {
-    try {
-        const result = await models.Book.find({topics: {$regex: new RegExp(topic, "i")}});
-        return result;
-    }
-    catch (error) {
-        throw err.errorFormat(error);
-    }
-}
-
 exports.findByAuthor = async (authorName) => {
     try {
         const authors = await models.Author.find({ name: new RegExp(authorName, 'i') });
@@ -74,24 +120,25 @@ exports.findByAuthor = async (authorName) => {
 
 exports.findAll = async () => {
     try {
-        const result = await models.Book.find();
-        return result;
+        const result = await models.Book.find()
+            .populate('authorIds', 'name')
+            .populate('bookFieldId', 'name')
+            .populate('publisherId', 'name');;
+        const booksWithBase64Images = result.map((book) => {
+            const bookObj = book.toObject();
+            if (book.image) {
+                bookObj.image = `data:image/jpeg;base64,${book.image.toString('base64')}`;
+            }
+            return bookObj;
+        });
+        return booksWithBase64Images;
     }
     catch (error) {
         throw err.errorFormat(error);
     }
 }
 
-exports.update = async (id, book) => {
-    await validateReference(book);
-    try {
-        const result = await models.Book.findByIdAndUpdate(id, book, {new: true, runValidators: true});
-        return result;
-    }
-    catch (error) {
-        throw err.errorFormat(error);
-    }
-}
+
 
 exports.delete = async (id) => {
     try {

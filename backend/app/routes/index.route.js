@@ -8,6 +8,8 @@ const Book = require('./system.categorys/book.route');
 const BookField = require('./system.categorys/bookField.route');
 const BookPrint = require('./system.categorys/bookPrint.route');
 const Publisher = require('./system.categorys/publisher.route');
+
+const Auth = require('./users/auth.route');
 const Reader = require('./users/reader.route');
 const Staff = require('./users/staff.route');
 module.exports = {
@@ -22,6 +24,7 @@ module.exports = {
     BookPrint,
     Publisher,
     
+    Auth,
     Staff,
     Reader,
 };

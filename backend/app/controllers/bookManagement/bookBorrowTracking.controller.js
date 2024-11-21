@@ -22,7 +22,7 @@ exports.findAll = async (req, res, next) => {
 
 exports.findByReader = async (req, res, next) => {
     try {
-        const data = await services.BookBorrowTracking.findByReader(req.body.readerId);
+        const data = await services.BookBorrowTracking.findByReader(req.params.id);
         if (!data) {
             return res.status(404).json({ message: 'Book borrow tracking not found' });
         }
@@ -74,7 +74,7 @@ exports.returnBook = async (req, res, next) => {
 
 exports.renewBook = async (req, res, next) => {
     try {
-        const data = await services.BookBorrowTracking.renewBook(req.body.readerId, req.body.bookPrintId);
+        const data = await services.BookBorrowTracking.renewBook(req.params.id);
         if (!data) {
             return res.status(404).json({ message: 'Book not found or not borrowed by this reader' });
         }

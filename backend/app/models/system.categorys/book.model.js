@@ -29,10 +29,6 @@ const bookSchema = new mongoose.Schema(
                 message: 'Year must be an integer and within a valid range.'
             }
         },
-        topics: {
-            type: [String],
-            required: [true, 'Topics is required']
-        },
         numberOfLoans: {
             type: Number,
             default: 0,
@@ -56,10 +52,10 @@ const bookSchema = new mongoose.Schema(
             ref: 'Publisher',
             required: [true, 'Publisher of book is required']
         },
-        // images: { 
-        //     type: mongoose.Schema.ObjectId, 
-        //     ref: 'ImageModel'
-        // },
+        image: { 
+            type: Buffer,
+            required: [true, 'Image of book is required']
+        },
     }
 );
 bookSchema.pre('save', async function (next) {

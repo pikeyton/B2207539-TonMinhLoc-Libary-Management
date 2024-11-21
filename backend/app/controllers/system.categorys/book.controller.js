@@ -4,11 +4,26 @@ const ApiError = require('../../utils/api.error.util.js');
 
 exports.create = async (req, res, next) => {
     try {
-        const data = await services.Book.create(req.body);
+
+        // Gọi service để tạo sách
+        const data = await services.Book.create(req.body, req.file);
+
         return res.status(201).json({
-            message: 'Book field created successfully',
+            message: 'Book created successfully',
             data: data,
         });
+    } catch (error) {
+        next(error);
+    }
+};
+
+exports.update = async (req, res, next) => {
+    try {
+        const data = await services.Book.update(req.params.id, req.body, req.file);
+        if (!data) {
+            return res.status(404).json({ message: 'Book field not found' });
+        }
+        return res.send({ message: 'Book field updated successfully' });
     }
     catch (error) {
         next(error);
@@ -54,19 +69,6 @@ exports.findByPublicId = async (req, res, next) => {
     }
 }
 
-exports.findByTopic = async (req, res, next) => {
-    try {
-        const data = await services.Book.findByTopic(req.query.topic);
-        if (!data) {
-            return res.status(404).json({ message: 'Book fields not found' });
-        }
-        return res.json(data);
-    }
-    catch (error) {
-        next(error);
-    }
-}
-
 exports.findByAuthor = async (req, res, next) => {
     try {
         const data = await services.Book.findByAuthor(req.query.author);
@@ -93,18 +95,7 @@ exports.findAll = async (req, res, next) => {
     }
 }
 
-exports.update = async (req, res, next) => {
-    try {
-        const data = await services.Book.update(req.params.id, req.body);
-        if (!data) {
-            return res.status(404).json({ message: 'Book field not found' });
-        }
-        return res.send({ message: 'Book field updated successfully' });
-    }
-    catch (error) {
-        next(error);
-    }
-}
+
 
 exports.delete = async (req, res, next) => {
     try {
