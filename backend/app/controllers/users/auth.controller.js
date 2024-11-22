@@ -37,7 +37,7 @@ exports.registerStaff = async (req, res, next) => {
     try {
         const body = {...req.body};
         if (await service.Reader.findByEmail(body.email) || await service.Staff.findByEmail(body.email)){
-            throw new ApiError(400, "The staff\'s email already exists.");
+            throw new ApiError(400, "Email đã tồn tại.");
         }
         body.password = await hashPassword(body.password)
         const data = await service.Staff.create(body);
@@ -52,7 +52,7 @@ exports.registerStaff = async (req, res, next) => {
             }
         )
         res.status(200).json({
-            message: "Register successfully",
+            message: "Đăng kí thành công",
             data: data,
         });
     } catch (err) {
@@ -70,7 +70,7 @@ exports.login = async (req, res, next) => {
             hashPassword: reader ? reader.password : staff.password,
         })
         if (!correctPassword)
-            throw new ApiError(400, "Password is wrong");
+            throw new ApiError(400, "Sai mật khẩu");
         jwt.createJWT(
             {
                 response: res,
@@ -83,7 +83,7 @@ exports.login = async (req, res, next) => {
         )
 
         res.status(200).json({
-            message: "Login successfully",
+            message: "Đăng nhập thành công",
             data: reader ? reader : staff,
         });
     } catch (err) {
@@ -95,7 +95,7 @@ exports.logout = async (req, res, next) => {
     try {
         jwt.resetJWT({ response: res })
         res.status(200).json({
-            message: "Logout successfully",
+            message: "Đăng xuất thành công",
         });
     } catch (err) {
         next(err);

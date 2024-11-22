@@ -5,76 +5,76 @@ const staffSchema = new mongoose.Schema(
     {
         publicId: {
             type: String,
-            required: [true, "Public ID is required"],
+            required: [true, "ID công khai là bắt buộc"],
             trim: true,
             unique: true,
-            match: [/^[A-Za-z0-9]{8}$/, "Public ID must be characters, numbers and have 8 characters"]
+            match: [/^[A-Za-z0-9]{8}$/, "ID công khai phải chứa 8 ký tự bao gồm chữ và số"]
         },
         email: {
             type: String,
-            required: [true, 'Email staff required'],
+            required: [true, 'Email là bắt buộc'],
             trim: true,
-            unique: [true, 'Email staff unique'],
+            unique: [true, 'Email phải là duy nhất'],
             validate: {
                 validator: validator.isEmail,
-                message: 'Invalid email format.'
+                message: 'Định dạng email không hợp lệ.'
             }
         },
         password: {
             type: String,
-            required: [true, 'Password staff required']
+            required: [true, 'Mật khẩu là bắt buộc']
         },
         role: {
             type: String,
             enum: ['admin', 'staff'],
             default: 'staff',
-            required: true
+            required: [true, 'Vai trò là bắt buộc']
         },
         firstName: {
             type: String,
-            required: [true, 'First name staff required'],
+            required: [true, 'Họ là bắt buộc'],
             trim: true,
-            minlength: 1,
-            maxlength: 20
+            minlength: [1, 'Họ phải có ít nhất 1 ký tự'],
+            maxlength: [20, 'Họ không được vượt quá 20 ký tự']
         },
         lastName: {
             type: String,
-            required: [true, 'Last name staff required'],
+            required: [true, 'Tên là bắt buộc'],
             trim: true,
-            minlength: 1,
-            maxlength: 50
+            minlength: [1, 'Tên phải có ít nhất 1 ký tự'],
+            maxlength: [50, 'Tên không được vượt quá 50 ký tự']
         },
         phoneNumber: {
             type: String,
-            required: [true, 'Phone number staff required'],
+            required: [true, 'Số điện thoại là bắt buộc'],
             trim: true,
             validate: {
                 validator: function(value) {
-                    return validator.isMobilePhone(value, 'vi-VN');
+                    return validator.isMobilePhone(value, 'vi-VN'); // Kiểm tra số điện thoại theo định dạng Việt Nam
                 },
-                message: 'Invalid phone number format.'
+                message: 'Định dạng số điện thoại không hợp lệ.'
             },
-            unique: true
+            unique: [true, 'Số điện thoại phải là duy nhất']
         },
         address: {
             type: String,
-            required: [true, 'Address staff required'],
+            required: [true, 'Địa chỉ là bắt buộc'],
             trim: true,
-            minlength: 5,
-            maxlength: 100
+            minlength: [5, 'Địa chỉ phải có ít nhất 5 ký tự'],
+            maxlength: [100, 'Địa chỉ không được vượt quá 100 ký tự']
         },
         birthDay: {
             type: Date,
-            required: [true, 'Birthday staff required'],
+            required: [true, 'Ngày sinh là bắt buộc'],
             validate: {
                 validator: validator.isDate,
-                message: 'Invalid date format.'
+                message: 'Định dạng ngày tháng không hợp lệ.'
             }
         },
         gender: {
             type: String,
             enum: ['Male', 'Female'],
-            required: [true, 'Gender staff required']
+            required: [true, 'Giới tính là bắt buộc']
         },
     }
 );

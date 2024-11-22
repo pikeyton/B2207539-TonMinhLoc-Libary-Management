@@ -59,7 +59,7 @@ exports.delete = async (id) => {
     const books = await models.Book.find({ authorIds: { $in: [id] } });
 
     if (books.length !== 0) {
-        throw new ApiError(400, "Cannot delete author while there are books by this author.");
+        throw new ApiError(400, "Không thể xóa tác giả khi có sách của tác giả này.");
     }
 
     try {

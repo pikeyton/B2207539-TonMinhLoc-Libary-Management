@@ -98,8 +98,16 @@ exports.findByName = async (name) => {
 
 exports.findByPublicId = async (publicId) => {
     try {
-        const result = await models.Book.find({publicId: {$regex: publicId, $options: "i"}});
-        return result;
+        const result = await models.Book.find({publicId: publicId})
+            .populate('authorIds', 'name')
+            .populate('bookFieldId', 'name')
+            .populate('publisherId', 'name');
+        const bookObj = result[0].toObject();
+
+        if (bookObj.image) {
+            bookObj.image = `data:image/jpeg;base64,${bookObj.image.toString('base64')}`;
+        }
+        return bookObj;
     }
     catch (error) {
         throw err.errorFormat(error);

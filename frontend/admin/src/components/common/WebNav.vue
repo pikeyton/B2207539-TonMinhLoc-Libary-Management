@@ -18,6 +18,7 @@
             <nav-item :title="'Trang chủ'" :routerName="'home'" class="me-5 nav-item" />
             <nav-item :title="'Sách'" :routerName="'book'" class="me-5 nav-item" />
             <nav-item :title="'Tác giả'" :routerName="'author'" class="me-5 nav-item" />
+            <nav-item :title="'Mượn sách'" :router-name="'borrowBook'" class="me-5 nav-item" />
             <nav-item :title="'Trả sách'" :routerName="'return'" class="me-5 nav-item" />
             <nav-item :title="'Trễ hạn'" :routerName="'enRetard'" class="me-5 nav-item" />
           </ul>

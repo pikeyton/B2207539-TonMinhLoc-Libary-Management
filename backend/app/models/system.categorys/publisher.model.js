@@ -4,31 +4,30 @@ const publisherSchema = new mongoose.Schema(
     {
         publicId: {
             type: String,
-            required: [true, 'Public ID is required'],
+            required: [true, 'Mã công khai là bắt buộc'],
             trim: true,
             unique: true,
-            match: [/^[A-Za-z0-9]{6}$/, 'Public ID must be characters, numbers and have 6 characters']
+            match: [/^[A-Za-z0-9]{6}$/, 'Mã công khai chỉ được chứa chữ, số và phải có 6 ký tự']
         },
         name: {
             type: String,
-            required: [true, 'Publisher name is required'],
+            required: [true, 'Tên nhà xuất bản là bắt buộc'],
             trim: true,
             unique: true,
-            minlength: [1, 'Publisher name must be at least 3 characters'],
-            maxlength: [50, 'Publisher name must be less than 50 characters'],
-            match: [/^[A-Za-zÀ-ỹ0-9\s]+$/, 'Publisher name can only contain alphabetic characters and spaces']
+            minlength: [3, 'Tên nhà xuất bản phải có ít nhất 3 ký tự'],
+            maxlength: [50, 'Tên nhà xuất bản phải ít hơn 50 ký tự'],
+            match: [/^[A-Za-zÀ-ỹ0-9\s]+$/, 'Tên nhà xuất bản chỉ được chứa chữ cái, số và khoảng trắng']
         },
         address: {
             type: String,
-            required: [true, 'Publisher address is required'],
+            required: [true, 'Địa chỉ nhà xuất bản là bắt buộc'],
             trim: true,
-            minlength: [1, 'Publisher address must be at least 10 characters'],
-            maxlength: [100, 'Publisher address must be less than 100 characters'],
-            match: [/^[A-Za-zÀ-ỹ0-9\s,.-]+$/, 'Publisher address can only contain alphanumeric characters, spaces, commas, periods, and hyphens']
+            minlength: [10, 'Địa chỉ nhà xuất bản phải có ít nhất 10 ký tự'],
+            maxlength: [100, 'Địa chỉ nhà xuất bản phải ít hơn 100 ký tự'],
+            match: [/^[A-Za-zÀ-ỹ0-9\s,.-]+$/, 'Địa chỉ nhà xuất bản chỉ được chứa chữ cái, số, khoảng trắng, dấu phẩy, dấu chấm và dấu gạch ngang']
         }
     }
 );
-
 
 const PublisherModel = mongoose.model('Publisher', publisherSchema);
 

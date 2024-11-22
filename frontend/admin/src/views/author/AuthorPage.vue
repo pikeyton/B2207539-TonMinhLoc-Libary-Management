@@ -1,27 +1,29 @@
 <template>
   <div class="container mt-4">
     <!-- Tiêu đề -->
-    <div class="container-top">
-        <HeaderTitle :title="'Danh sách Tác giả'" />
-        <btn class="btn-add-author" nameBtn="Thêm" @click="addAuthor"></btn>
+    <div class="header-section">
+      <HeaderTitle :title="'Danh Sách Tác Giả'" />
+      <btn class="btn-add-author" nameBtn="Thêm" @click="addAuthor"></btn>
     </div>
+
     <!-- Thanh tìm kiếm -->
     <SearchBar
       :searchBy="'Tìm kiếm theo'"
       :options="searchOptions"
       @search="handleSearch"
     />
+
     <!-- Bảng hiển thị tác giả -->
-    <div class="table-responsive mt-5">
-      <table class="table table-bordered">
-        <thead>
+    <div class="table-container mt-5">
+      <table class="table table-hover table-striped">
+        <thead class="table-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Tên Tác Giả</th>
             <th scope="col">Public ID</th>
             <th scope="col">Giới Tính</th>
             <th scope="col">Mô Tả</th>
-            <th scope="col">Cập nhật</th>
+            <th scope="col">Cập Nhật</th>
             <th scope="col">Xóa</th>
           </tr>
         </thead>
@@ -30,19 +32,19 @@
             <th scope="row">{{ index + 1 }}</th>
             <td>{{ author.name }}</td>
             <td>{{ author.publicId }}</td>
-            <td>{{ author.gender }}</td>
-            <td>{{ author.descripe }}</td>
+            <td>{{ author.gender === 'Male' ? 'Nam' : (author.gender === 'Female' ? 'Nữ' : 'Khác') }}</td>
+            <td class="text-wrap">{{ author.descripe }}</td>
             <td>
               <button
-                class="btn btn-warning"
+                class="btn btn-warning btn-sm"
                 @click="updateAuthor(author._id)"
               >
-                Cập nhật
+                Cập Nhật
               </button>
             </td>
             <td>
               <button
-                class="btn btn-danger"
+                class="btn btn-danger btn-sm"
                 @click="deleteAuthor(author._id)"
               >
                 Xóa
@@ -50,13 +52,14 @@
             </td>
           </tr>
           <tr v-if="filteredAuthors.length === 0">
-            <td colspan="5" class="text-center">Không tìm thấy tác giả nào</td>
+            <td colspan="7" class="text-center">Không tìm thấy tác giả nào</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </template>
+
 
 <script>
 import HeaderTitle from "@/components/common/GreeTing.vue";
@@ -145,60 +148,116 @@ export default {
 </script>
 
 <style scoped>
+/* Tổng quan */
 .container {
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+.header-section h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-add-author {
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-add-author:hover {
+  background-color: #0056b3;
+}
+
+/* Bảng hiển thị */
+.table-container {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .table {
-  margin-top: 20px;
-  font-size: 1rem;
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-thead th {
+.table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.table th, .table td {
   text-align: center;
-}
-
-td,
-th {
   vertical-align: middle;
-  text-align: center;
+  padding: 10px;
+  font-size: 14px;
 }
 
+.table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Cột mô tả */
+td.text-wrap {
+  word-wrap: break-word;
+  max-width: 300px;
+}
+
+/* Nút */
+button {
+  cursor: pointer;
+}
+
+button.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+button.btn-warning {
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+}
+
+button.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+button.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/* Hiển thị trung tâm khi không có dữ liệu */
 .text-center {
-  text-align: center;
-}
-
-/* Cập nhật độ rộng các cột */
-th:nth-child(1), td:nth-child(1) {
-  width: 50px; /* Cột số thứ tự */
-}
-
-th:nth-child(2), td:nth-child(2) {
-  width: 400px; /* Cột tên tác giả */
-}
-
-th:nth-child(3), td:nth-child(3) {
-  width: 150px; /* Cột Public ID */
-}
-
-th:nth-child(4), td:nth-child(4) {
-  width: 100px; /* Cột giới tính */
-}
-
-th:nth-child(5), td:nth-child(5) {
-  width: 600px; /* Cột mô tả */
-}
-
-th:nth-child(6), td:nth-child(6) {
-  width: 200px; /* Cột cập nhật */
-}
-
-th:nth-child(7), td:nth-child(7) {
-  width: 120px; /* Cột xóa */
-}
-.container-top {
-    text-align: center;
-    padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6c757d;
 }
 </style>

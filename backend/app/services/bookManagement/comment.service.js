@@ -14,7 +14,7 @@ exports.create = async (comment) => {
         bookId: comment.bookId
     });
     if (myComment){
-        return {message: "Comment already exists."};
+        return {message: "Bình luận đã tồn tại."};
     }
 
     try {
@@ -22,7 +22,7 @@ exports.create = async (comment) => {
         data = await models.Comment.findById(result._id).populate("readerId");
         console.log(data);
         return {
-            message: 'Comment created successfully',
+            message: 'Bình luận đã được thêm thành công',
             data: data,
         };
     }

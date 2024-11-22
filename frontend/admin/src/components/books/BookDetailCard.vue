@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td>
-      <img :src="book.image" alt="Hình Ảnh" class="book-image" width="500" height="300" />
+      <img :src="book.image" alt="Hình Ảnh" class="book-image" />
     </td>
     <td>
       <p><strong>ID Sách:</strong> {{ book.publicId }}</p>
@@ -10,15 +10,13 @@
       <p><strong>Lĩnh Vực:</strong> {{ book.bookFieldId.name }}</p>
       <p><strong>Số Lượt Mượn:</strong> {{ book.numberOfLoans }}</p>
       <p><strong>Nhà Xuất Bản:</strong> {{ book.publisherId.name }}</p>
-      <div class="action-buttons" v-if="!isDetailView">
-        <btn class="btn-detail" nameBtn="Xem Bình Luận" @click="handleShowDetail(book)"></btn>
-        <btn class="btn-borrow" nameBtn="Cho Mượn" @click="handleBorrow(book)"></btn>
-        
-        <btn class="btn-BookPrintRead" nameBtn="Thêm bản in chỉ đọc" @click="handleBookPrintRead(book)"></btn>
-        <btn class="btn-BookPrintBorrow" nameBtn="Thêm bản in có thể mượn" @click="handleBookPrintBorrow(book)"></btn>
-
-        <btn class="btn-edit btn-warning" nameBtn="Chỉnh Sửa" @click="handleEdit(book)"></btn>
-        <btn class="btn-delete btn-danger" nameBtn="Xóa" @click="handleDelete(book)"></btn>
+      <div v-if="!isDetailView" class="action-buttons">
+        <btn class="btn-detail" nameBtn="Xem Bình Luận" @click="handleShowDetail" />
+        <btn class="btn-borrow" nameBtn="Cho Mượn" @click="handleBorrow" />
+        <btn class="btn-BookPrintRead" nameBtn="Thêm Bản In Chỉ Đọc" @click="handleBookPrintRead" />
+        <btn class="btn-BookPrintBorrow" nameBtn="Thêm Bản In Có Thể Mượn" @click="handleBookPrintBorrow" />
+        <btn class="btn-edit btn-warning" nameBtn="Chỉnh Sửa" @click="handleEdit" />
+        <btn class="btn-delete btn-danger" nameBtn="Xóa" @click="handleDelete" />
       </div>
     </td>
   </tr>
@@ -26,73 +24,69 @@
 
 <script>
 import Btn from "@/components/common/ButtonA.vue";
+
 export default {
-components: {
+  components: {
     Btn,
-},
-props: {
-  book: {
-    type: Object,
-    required: true,
   },
-  isDetailView: {
-    type: Boolean,
-    default: false, // Mặc định không phải trang chi tiết
+  props: {
+    book: {
+      type: Object,
+      required: true,
+    },
+    isDetailView: {
+      type: Boolean,
+      default: false,
+    },
   },
-},
-emits: ["showDetail", "borrow", "edit", "delete", "BookPrintRead", "BookPrintBorrow"],
-methods: {
-  handleShowDetail(book) {
-    this.$emit("showDetail", book);
+  emits: ["showDetail", "borrow", "edit", "delete", "BookPrintRead", "BookPrintBorrow"],
+  methods: {
+    handleShowDetail() {
+      this.$emit("showDetail", this.book);
+    },
+    handleBorrow() {
+      this.$emit("borrow", this.book);
+    },
+    handleEdit() {
+      this.$emit("edit", this.book);
+    },
+    handleDelete() {
+      this.$emit("delete", this.book);
+    },
+    handleBookPrintRead() {
+      this.$emit("BookPrintRead", this.book);
+    },
+    handleBookPrintBorrow() {
+      this.$emit("BookPrintBorrow", this.book);
+    },
   },
-  handleBorrow(book) {
-    this.$emit("borrow", book);
-  },
-  handleEdit(book) {
-    this.$emit("edit", book);
-  },
-  handleDelete(book) {
-    this.$emit("delete", book);
-  },
-  handleBookPrintRead(book) {
-    this.$emit("BookPrintRead", book);
-  },
-  handleBookPrintBorrow(book) {
-    this.$emit("BookPrintBorrow", book);
-  },
-},
 };
 </script>
 
 <style scoped>
-/* Chỉnh hình ảnh */
 .book-image {
-object-fit: cover;
-width: 100%;
-max-width: 300px; /* Đảm bảo hình không quá lớn */
-height: auto;
-display: block;
-margin: 0 auto; /* Căn giữa hình ảnh */
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Bố cục tổng thể */
 td {
-vertical-align: middle; /* Canh giữa nội dung trong ô */
-padding: 15px; /* Khoảng cách bên trong các ô */
+  vertical-align: middle;
+  padding: 15px;
 }
 
-/* Canh văn bản */
 td p {
-margin: 8px 0; /* Khoảng cách giữa các dòng */
-font-size: 16px;
-line-height: 1.5;
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Chỉnh các nút hành động */
 .action-buttons {
-display: flex;
-gap: 10px; /* Khoảng cách giữa các nút */
-margin-top: 10px;
-justify-content: center; /* Căn giữa các nút */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
 }
 </style>

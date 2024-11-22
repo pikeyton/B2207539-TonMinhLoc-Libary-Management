@@ -1,6 +1,5 @@
 const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.route');
 const BookBorrowTracking = require('./bookManagement/bookBorrowTracking.route');
-const BookPurchaseRegistration = require('./bookManagement/bookPurchaseRegistration.route');
 const Comment = require('./bookManagement/comment.route');
 
 const Author = require('./system.categorys/author.route')
@@ -15,7 +14,6 @@ const Staff = require('./users/staff.route');
 module.exports = {
     BookBorrowRegistration,
     BookBorrowTracking,
-    BookPurchaseRegistration,
     Comment,
 
     Author,

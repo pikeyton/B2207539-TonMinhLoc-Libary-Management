@@ -2,7 +2,6 @@ const models = require('../../models/index.model');
 const foreignKey = require('../../utils/foreignKey.util');
 const err = require('../../utils/service.error.util');
 
-
 async function validateReference(bookBorrowTracking) {
     await foreignKey.BookPrint(bookBorrowTracking.bookPrintId);
     await foreignKey.Reader(bookBorrowTracking.readerId);
@@ -14,22 +13,21 @@ exports.create = async (bookBorrowTracking) => {
 
     const bookPrint = await models.BookPrint.findById(bookBorrowTracking.bookPrintId);
     if (bookPrint.readerReturnDate){
-        return {message: "The printed book has been borrowed by another reader."};
+        return {message: "Bản in sách đã được mượn bởi độc giả khác."};
     }
     if (bookPrint.documentType === "Document Read"){
-        return {message: "The printed book is already in read state."};
+        return {message: "Bản in sách đang ở trạng thái chỉ đọc."};
     }
 
-    reader = await models.Reader.findById(bookBorrowTracking.readerId);
+    const reader = await models.Reader.findById(bookBorrowTracking.readerId);
     if (reader.currentNumberOfBooksBorrowed == reader.maximumNumberOfBooksBorrowed ){
-        return {message: "The reader has reached the maximum number of books borrowed."};
+        return {message: "Độc giả đã đạt đến giới hạn số lượng sách được mượn."};
     }
 
     const yourSignUp = await models.BookBorrowRegistration.findOne({bookPrintId: bookBorrowTracking.bookPrintId});
     if (yourSignUp && yourSignUp.readerId != bookBorrowTracking.readerId){
-        return {message: "The book is already registration borrowed by another reader."};
+        return {message: "Sách đã được đăng ký mượn bởi độc giả khác."};
     }
-
 
     try {
         const result = await models.BookBorrowTracking.create(bookBorrowTracking);
@@ -37,14 +35,14 @@ exports.create = async (bookBorrowTracking) => {
             const bookBorrowRgistration = await models.BookBorrowRegistration.findOne({
                 bookPrintId: bookBorrowTracking.bookPrintId,
                 readerId: bookBorrowTracking.readerId,
-            })
+            });
             if (bookBorrowRgistration){
                 await models.BookBorrowRegistration.findByIdAndDelete(bookBorrowRgistration._id);
             }
             bookPrint.readerReturnDate = result.dueDate;
             await bookPrint.save();
 
-            book = await models.Book.findById(bookPrint.bookId);
+            const book = await models.Book.findById(bookPrint.bookId);
             book.numberOfLoans += 1;
             await book.save();
 
@@ -56,7 +54,7 @@ exports.create = async (bookBorrowTracking) => {
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};
 
 exports.findAll = async () => {
     try {
@@ -77,7 +75,7 @@ exports.findAll = async () => {
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};
 
 exports.findByReader = async (readerId) => {
     try {
@@ -98,7 +96,7 @@ exports.findByReader = async (readerId) => {
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};
 
 exports.findOverdueBooksByReader = async (readerId) => {
     await foreignKey.Reader(readerId);
@@ -107,13 +105,13 @@ exports.findOverdueBooksByReader = async (readerId) => {
             readerId,                
             dueDate: { $lt: new Date() }, 
             returnedDate: null
-        })
+        });
         return overdueBooks;
     }
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};
 
 exports.findOverdueBooks = async () => {
     try {
@@ -146,9 +144,9 @@ exports.returnBook = async (readerId, bookPrintId) => {
             bookPrintId: bookPrintId,
             readerId: readerId,
             returnedDate: null
-        })
+        });
         if (!bookBorrowTracking) {
-            return {message: "The book borrow tracking does not exist."};
+            return {message: "Thông tin mượn sách không tồn tại."};
         }
         bookBorrowTracking.returnedDate = Date.now();
         await bookBorrowTracking.save();
@@ -161,34 +159,31 @@ exports.returnBook = async (readerId, bookPrintId) => {
         reader.currentNumberOfBooksBorrowed -= 1;
         await reader.save();
 
-        return {message: "Book has been returned"};
+        return {message: "Sách đã được trả."};
     }
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};
 
 exports.renewBook = async (id) => {
     try {
-        
         const bookBorrowTracking = await models.BookBorrowTracking.findById(id);
-        console.log(bookBorrowTracking)
         if (!bookBorrowTracking) {
-            return {message: "The book borrow tracking does not exist."};
+            return {message: "Thông tin mượn sách không tồn tại."};
         }
         bookBorrowTracking.dueDate = new Date(bookBorrowTracking.dueDate.getTime() + 7 * 24 * 60 * 60 * 1000);
         await bookBorrowTracking.save();
-        
-        console.log(bookBorrowTracking)
+
         const bookPrint = await models.BookPrint.findById(bookBorrowTracking.bookPrintId);
         bookPrint.readerReturnDate = bookBorrowTracking.dueDate;
         await bookPrint.save();
-        return {message: "Book print has been renewed"};
+        return {message: "Bản in sách đã được gia hạn."};
     }
     catch (error) {
         throw err.errorFormat(error);
     }
-} 
+};
 
 exports.delete = async (id) => {
     try {
@@ -198,4 +193,4 @@ exports.delete = async (id) => {
     catch (error) {
         throw err.errorFormat(error);
     }
-}
+};

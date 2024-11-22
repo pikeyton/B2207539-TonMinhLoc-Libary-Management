@@ -13,11 +13,14 @@ const getRole = (token) => {
 }
 
 const checkRole = (role, target, next) => {
-    if (!role)
-        throw new ApiError(401, "Not authorized, please log in or register");
-    if (role != target)
-        throw new ApiError(401, "Not authorized");
-    return next()
+    if (!role) {
+        throw new ApiError(401, "Chưa được xác thực, vui lòng đăng nhập hoặc đăng ký.");
+    }
+    if (role !== target) {
+        throw new ApiError(401, "Bạn không có quyền truy cập vào tài nguyên này.");
+    }
+    return next();
+    
 }
 
 exports.staff = async (req, res, next) => {

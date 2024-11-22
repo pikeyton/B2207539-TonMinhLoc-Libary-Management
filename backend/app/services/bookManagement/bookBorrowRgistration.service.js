@@ -11,18 +11,18 @@ async function validateReference(bookBorrowRegistration){
 exports.create = async (bookBorrowRegistration) => {
     await validateReference(bookBorrowRegistration);
     
-    bookPrint = await models.BookPrint.findById(bookBorrowRegistration.bookPrintId);
+    const bookPrint = await models.BookPrint.findById(bookBorrowRegistration.bookPrintId);
     if (bookPrint.readerReturnDate){
-        return {message: "The printed book has been borrowed by another reader."};
+        return {message: "Bản in của sách đã được mượn bởi độc giả khác."};
     }
     if (bookPrint.documentType === "Document Read"){
-        return {message: "The printed book is already in read state."};
+        return {message: "Bản in của sách đang ở trạng thái chỉ đọc."};
     }
 
-    reader = await models.Reader.findById(bookBorrowRegistration.readerId);
+    const reader = await models.Reader.findById(bookBorrowRegistration.readerId);
     const numberOfRegistrations = await models.BookBorrowRegistration.countDocuments({ readerId: bookBorrowRegistration.readerId });
     if (numberOfRegistrations + reader.currentNumberOfBooksBorrowed >= reader.maximumNumberOfBooksBorrowed ){
-        return {message: "The reader has reached the maximum number of books borrowed and is checking out."};
+        return {message: "Độc giả đã đạt đến giới hạn số lượng sách được mượn."};
     }
 
     const mySignUp = await models.BookBorrowRegistration.findOne({
@@ -30,18 +30,18 @@ exports.create = async (bookBorrowRegistration) => {
         bookPrintId: bookBorrowRegistration.bookPrintId,
     });
     if (mySignUp){
-        return {message: "The reader has already borrowed this book."};
+        return {message: "Độc giả đã đăng ký mượn sách này."};
     }
 
     const yourSignUp = await models.BookBorrowRegistration.findOne({bookPrintId: bookBorrowRegistration.bookPrintId});
     if (yourSignUp){
-        return {message: "The book is already registration borrowed by another reader."};
+        return {message: "Sách đã được đăng ký mượn bởi độc giả khác."};
     }
     
     try {
         const result = await models.BookBorrowRegistration.create(bookBorrowRegistration);
         return {
-            message: 'Book borrow registration created successfully',
+            message: 'Đăng ký mượn sách thành công.',
             data: result,
         };
     }
@@ -72,7 +72,7 @@ exports.findByReader = async (readerId) => {
                 "name", "publicId",
               ],  
             }
-          });;
+          });
         return result;
     }
     catch (error) {

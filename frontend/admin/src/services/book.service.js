@@ -44,6 +44,23 @@ class BookService {
         }
     }
 
+    async findByPublicId(publicId) {
+        try {
+            console.log(publicId);
+            const data = (await this.api.get(`/search/publicId?publicId=${publicId}`)).data;
+            return {
+                status: "success",
+                message: data.message || "Book retrieved successfully",
+                data: data,
+            }
+        } catch (err) {
+            return {
+                status: "error",
+                message: err.response.data.message,
+            }
+        }
+    }
+
     async findOne(id) {
         try {
             const data = (await this.api.get(`/${id}`)).data

@@ -1,6 +1,6 @@
 import ReturnBook from "@/views/ReturnBook.vue";
 import EnRetard from "@/views/EnRetard.vue";
-
+import BorrowBook from "@/views/books/ReaderBorrow.vue";
 import Staff from "@/views/auth/ProfilePage.vue";
 
 
@@ -28,6 +28,11 @@ const routes = [
                 name: 'enRetard',
                 component: EnRetard,
             },
+            {
+                path: '/borrowBook',
+                name: 'borrowBook',
+                component: BorrowBook,
+            }
 
         ]
     }

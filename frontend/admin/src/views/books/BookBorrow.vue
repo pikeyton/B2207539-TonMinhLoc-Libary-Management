@@ -1,32 +1,48 @@
 <template>
-  <BackButton />
   <div class="book-detail">
-    <BookDetailCard :book="book" :isDetailView="true" />
-    <div class="reader-section">
-      <h3>Thông tin độc giả</h3>
+    <!-- Nút Quay Lại -->
+    <BackButton />
+
+    <!-- Hiển Thị Thông Tin Sách -->
+    <div class="section">
+      <h2>Thông Tin Sách</h2>
+      <BookDetailCard :book="book" :isDetailView="true" />
+    </div>
+
+    <!-- Nhập ID Độc Giả -->
+    <div class="section reader-section">
+      <h2>Thông Tin Độc Giả</h2>
       <div class="reader-input">
-        <label for="readerId">Nhập ID độc giả:</label>
-        <input
-          type="text"
-          id="readerId"
-          v-model="readerId"
-          @change="fetchReader"
+        <label for="readerId">Nhập ID Độc Giả:</label>
+        <input 
+          type="text" 
+          id="readerId" 
+          class="form-control" 
+          placeholder="Nhập ID độc giả..." 
+          v-model="readerId" 
+          @change="fetchReader" 
         />
       </div>
-      <div v-if="reader" class="reader-info">
+      <div v-if="reader" class="reader-info card">
+        <h3>Chi Tiết Độc Giả</h3>
         <p><strong>ID:</strong> {{ reader.publicId }}</p>
-        <p><strong>Họ và tên:</strong> {{ reader.firstName }} {{ reader.lastName }}</p>
+        <p><strong>Họ và Tên:</strong> {{ reader.firstName }} {{ reader.lastName }}</p>
         <p><strong>Email:</strong> {{ reader.email }}</p>
-        <p><strong>Số điện thoại:</strong> {{ reader.phoneNumber }}</p>
-        <p><strong>Địa chỉ:</strong> {{ reader.address }}</p>
-        <p><strong>Số sách tối đa có thể mượn:</strong> {{ reader.maximumNumberOfBooksBorrowed }}</p>
-        <p><strong>Số sách hiện đang mượn:</strong> {{ reader.currentNumberOfBooksBorrowed }}</p>
+        <p><strong>Số Điện Thoại:</strong> {{ reader.phoneNumber }}</p>
+        <p><strong>Địa Chỉ:</strong> {{ reader.address }}</p>
+        <p><strong>Số Sách Tối Đa Có Thể Mượn:</strong> {{ reader.maximumNumberOfBooksBorrowed }}</p>
+        <p><strong>Số Sách Hiện Đang Mượn:</strong> {{ reader.currentNumberOfBooksBorrowed }}</p>
       </div>
     </div>
-    <BookPrints :prints="bookPrints" @borrow-books="borrowBooks" />
-    
+
+    <!-- Hiển Thị Danh Sách Bản In -->
+    <div class="section">
+      <h2>Danh Sách Bản In</h2>
+      <BookPrints :prints="bookPrints" @borrow-books="borrowBooks" />
+    </div>
   </div>
 </template>
+
 
 <script>
 import { onMounted, reactive, ref } from "vue";
@@ -124,23 +140,78 @@ export default {
   },
 };
 </script>
-
 <style scoped>
+/* Tổng Quan */
 .book-detail {
   max-width: 800px;
   margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
-.reader-section {
-  margin-top: 20px;
+/* Tiêu Đề */
+.section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #007bff;
 }
 
+/* Phần Nhập ID Độc Giả */
 .reader-input {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Card Thông Tin */
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 20px;
+}
+
+/* Căn Chỉnh Thông Tin */
 .reader-info p {
   margin: 5px 0;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
+/* Section */
+.section {
+  margin-top: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
 </style>

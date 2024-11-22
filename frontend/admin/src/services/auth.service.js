@@ -10,13 +10,13 @@ class AuthService {
             const data = (await this.api.post("/login", user)).data
             return {
                 status: "success",
-                message: data.message || "Staff logged in successfully",
+                message: data.message || "Đăng nhập thành công",
                 data: data.data,
             }
         } catch (err) {
             return {
                 status: "error",
-                message: err.response.data.message,
+                message: err.response.data.message || "Đăng nhập thất bại",
             }
         }
     }
@@ -26,14 +26,13 @@ class AuthService {
             const data = (await this.api.post("/register/staff", user)).data
             return {
                 status: "success",
-                message: data.message || "Staff registered successfully",
+                message: data.message || "Đăng ký thành công",
                 data: data.data,
             }
-
         } catch (err) {
             return {
                 status: "error",
-                message: err.response.data.message,
+                message: err.response.data.message || "Đăng ký thất bại",
             }
         }
     }
@@ -43,12 +42,12 @@ class AuthService {
             const data = (await this.api.post("/logout")).data
             return {
                 status: "success",
-                message: data.message || "Staff logged out successfully",
+                message: data.message || "Đăng xuất thành công",
             }
         } catch (err) {
             return {
                 status: "error",
-                message: err.response.data.message,
+                message: err.response.data.message || "Đăng xuất thất bại",
             }
         }
     }

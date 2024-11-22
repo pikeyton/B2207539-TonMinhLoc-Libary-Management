@@ -15,8 +15,9 @@
             <td><input type="radio"
               name="selectedPrint" v-model="selectedPrint" :value="print._id" /></td>
             <td>{{ print.publicId }}</td>
-            <td>{{ print.documentType }}</td>
-            <td>{{ print.readerReturnDate }}</td>
+            <td>{{ print.documentType === 'Document Read' ? 'Tài liệu đọc' :  'Tài liệu mượn'}}</td>
+
+            <td>{{ print.readerReturnDate === null ? "": new Date(print.readerReturnDate).toLocaleDateString("vi-VN")}}</td>
           </tr>
         </tbody>
       </table>

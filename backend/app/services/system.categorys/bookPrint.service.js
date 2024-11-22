@@ -13,12 +13,6 @@ exports.create = async (bookPrint) =>{
     await validateReference(bookPrint);
     try {
         const result = await models.BookPrint.create(bookPrint);
-        if (result && result.readerIdOwn){
-            const reader = await models.Reader.findById(result.readerIdOwn);
-            if (reader.maximumNumberOfBooksBorrowed <= 10)
-                reader.maximumNumberOfBooksBorrowed += 1;
-            await reader.save();
-        }
         return result;
     }
     catch (error) {
@@ -61,23 +55,6 @@ exports.update = async (id, bookPrint) => {
     try {
         const bookPrintOld = await models.BookPrint.findById(id);
         const result = await models.BookPrint.findByIdAndUpdate(id, bookPrint, { new: true, runValidators: true });
-        console.log(result);
-        if (result){
-            if (bookPrintOld.readerIdOwn != result.readerIdOwn){
-                if (bookPrintOld.readerIdOwn){
-                    const readerOld = await models.Reader.findById(bookPrintOld.readerIdOwn);
-                    if (readerOld.maximumNumberOfBooksBorrowed > 0)
-                        readerOld.maximumNumberOfBooksBorrowed -= 1;
-                    await readerOld.save();
-                }
-                if (result.readerIdOwn){
-                    const readerNew = await models.Reader.findById(result.readerIdOwn);
-                    if (readerNew.maximumNumberOfBooksBorrowed <= 10)
-                        readerNew.maximumNumberOfBooksBorrowed += 1;
-                    await readerNew.save();
-                }
-            }
-        }
         return result;
     }
     catch (error) {
@@ -88,12 +65,6 @@ exports.update = async (id, bookPrint) => {
 exports.delete = async (id) => {
     try {
         const result = await models.BookPrint.findByIdAndDelete(id);
-        if (result && result.readerIdOwn){
-            const reader = await models.Reader.findById(result.readerIdOwn);
-            if (reader.maximumNumberOfBooksBorrowed > 0)
-                reader.maximumNumberOfBooksBorrowed -= 1;
-            await reader.save();
-        }
         return result;
     }
     catch (error) {

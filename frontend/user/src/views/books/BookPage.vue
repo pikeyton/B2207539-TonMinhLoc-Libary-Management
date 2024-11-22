@@ -1,15 +1,25 @@
 <template>
     <div>
+        <!-- Tiêu đề -->
         <div class="container-top">
-            <greeting :title="title"></greeting>
+            <Greeting :title="title" />
         </div>
-        <SearchBar @search="handleSearch" class="input-search" :searchBy="searchBy" :options="options"></SearchBar>
-        <div class="row">
-            <table class="table table-bordered">
-                <thead>
+
+        <!-- Thanh tìm kiếm -->
+        <SearchBar 
+            @search="handleSearch" 
+            class="input-search" 
+            :searchBy="searchBy" 
+            :options="options" 
+        />
+
+        <!-- Bảng hiển thị sách -->
+        <div class="table-container mt-5">
+            <table class="table table-hover table-striped">
+                <thead class="table-dark">
                     <tr>
-                        <th scope="col" class="image-column">Hình Ảnh</th>
-                        <th scope="col" class="info-column">Thông Tin Sách</th>
+                        <th class="image-column">Hình Ảnh</th>
+                        <th class="info-column">Thông Tin Sách</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,29 +35,26 @@
         </div>
     </div>
 </template>
-
-
-
 <script>
-import Greeting from '@/components/common/GreeTing.vue';
-import bookService from '@/services/book.service';
-import SearchBar from '@/components/common/SearchBar.vue';
+import Greeting from "@/components/common/GreeTing.vue";
+import bookService from "@/services/book.service";
+import SearchBar from "@/components/common/SearchBar.vue";
 import BookDetailCard from "@/components/books/BookDetailCard.vue";
 
 export default {
     data() {
         return {
-            title: 'Quản lý sách',
+            title: "Tra Cứu Sách",
             books: [],
             filterBooks: [],
             searchTerm: "",
             searchBy: "Tìm kiếm",
             options: [
-                { label: 'Tìm theo mã sách', value: 'id'},
-                { label: 'Tìm kiếm theo tên sách', value: 'name' },
-                { label: 'Tìm kiếm theo lĩnh vực', value: 'field'},
-                { label: 'Tìm kiếm theo tác giả', value: 'author' },
-            ]
+                { label: "Tìm theo mã sách", value: "id" },
+                { label: "Tìm kiếm theo tên sách", value: "name" },
+                { label: "Tìm kiếm theo lĩnh vực", value: "field" },
+                { label: "Tìm kiếm theo tác giả", value: "author" },
+            ],
         };
     },
     components: {
@@ -55,7 +62,7 @@ export default {
         SearchBar,
         BookDetailCard,
     },
-    beforeMount: async function() {
+    async beforeMount() {
         await this.getBooks();
     },
     methods: {
@@ -65,138 +72,125 @@ export default {
             this.filter();
         },
         filter() {
-            
-            if (!this.searchTerm || this.searchTerm === "") {
+            if (!this.searchTerm) {
                 this.filterBooks = this.books;
                 return;
             }
-            if (!this.option) {
-                this.filterBooks = this.books;
-                return;
-            }
-            console.log(this.searchTerm, this.option);
 
             const searchTerm = this.searchTerm.toLowerCase();
-            
+
             switch (this.option) {
-                case 'id':
-                    
+                case "id":
                     this.filterBooks = this.books.filter(book =>
                         book.publicId?.toLowerCase().includes(searchTerm)
                     );
                     break;
-
-                case 'name':
+                case "name":
                     this.filterBooks = this.books.filter(book =>
                         book.name?.toLowerCase().includes(searchTerm)
                     );
                     break;
-                
-                case 'field':
+                case "field":
                     this.filterBooks = this.books.filter(book =>
                         book.bookFieldId.name?.toLowerCase().includes(searchTerm)
                     );
                     break;
-
-                case 'author':
+                case "author":
                     this.filterBooks = this.books.filter(book =>
                         book.authorIds?.some(author =>
                             author.name.toLowerCase().includes(searchTerm)
                         )
                     );
                     break;
-
                 default:
                     this.filterBooks = this.books;
-                    break;
             }
         },
-
         async getBooks() {
-            const res = await bookService.findAll();
-            if (res.status === "error") {
-                alert(res.message);
-                return;
+            try {
+                const res = await bookService.findAll();
+                this.books = res.data;
+                this.filterBooks = this.books;
+            } catch (error) {
+                console.error("Lỗi khi tải danh sách sách:", error);
             }
-            this.books = res.data;
-            this.filterBooks = this.books;
         },
-        handleBorrow(book){
+        handleBorrow(book) {
             this.$router.push({
-                name: 'book-borrow',
+                name: "book-borrow",
                 params: {
-                    id: book._id
-                }
-            })
+                    id: book._id,
+                },
+            });
         },
         handleShowDetail(book) {
             this.$router.push({
-                name: 'book-detail',
+                name: "book-detail",
                 params: {
-                    id: book._id
-                }
+                    id: book._id,
+                },
             });
-        }
-    }
+        },
+    },
 };
 </script>
-
 <style scoped>
+/* Tổng quan */
 .container-top {
     text-align: center;
     padding: 20px;
 }
 
+/* Thanh tìm kiếm */
 .input-search {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+/* Bảng */
+.table-container {
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .table {
-    margin-top: 20px;
     width: 100%;
-    text-align: left;
-    font-size: 14px;
     border-collapse: collapse;
+}
+
+.table thead {
+    background-color: #343a40;
+    color: #fff;
 }
 
 .table th,
 .table td {
     padding: 15px;
-    border: 1px solid #ddd;
-    vertical-align: middle;
+    text-align: left;
 }
 
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Cột hình ảnh */
 .image-column {
-    width: 50%; 
+    width: 40%;
     text-align: center;
-    vertical-align: middle;
 }
 
+/* Cột thông tin */
 .info-column {
-    width: 50%; 
+    width: 60%;
 }
 
+/* Hình ảnh */
 .book-image {
-    max-width: 90%; 
-    max-height: 400px; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
-}
-
-.action-buttons {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-.btn-detail,
-.btn-edit,
-.btn-delete {
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 </style>
-
-

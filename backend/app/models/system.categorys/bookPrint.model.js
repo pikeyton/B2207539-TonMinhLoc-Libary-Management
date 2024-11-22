@@ -8,24 +8,15 @@ const bookPrintSchema = new mongoose.Schema({
     bookId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Book',
-        required: [true, "Book Print ID is required"]
-    },
-    readerIdOwn: {
-        type: mongoose.Schema.Types.ObjectId,
-        default: null,
-        ref: 'Reader'
+        required: [true, "ID sách in là bắt buộc"]
     },
     documentType: {
         type: String,
         enum: {
             values: ['Document Read', 'Document Borrow'],
-            message: "Document type must be either 'Document Read' or 'Document Borrow'"
+            message: "Loại tài liệu phải là 'Document Read' hoặc 'Document Borrow'"
         },
-        required: [true, "Document type is required"]
-    },
-    entryDate: {
-        type: Date,
-        default: Date.now
+        required: [true, "Loại tài liệu là bắt buộc"]
     },
     readerReturnDate: {
         type: Date,
@@ -41,7 +32,7 @@ bookPrintSchema.pre('save', async function(next){
         let publicId = null;
         while (true){
             publicId = `${book.publicId}.${numericalOrder}`;
-            let bookPrint = await models.BookPrint.findOne({publicId});
+            let bookPrint = await models.BookPrint.findOne({ publicId });
             if (!bookPrint) break;
             numericalOrder += 1;
         }
@@ -52,6 +43,7 @@ bookPrintSchema.pre('save', async function(next){
     }
     next();
 });
+
 const BookPrintModel = mongoose.model('BookPrint', bookPrintSchema);
 
 module.exports = BookPrintModel;

@@ -14,10 +14,6 @@
             <li><b>Kiểm tra sách trễ hạn:</b> Hiển thị danh sách độc giả mượn sách quá hạn để dễ dàng xử lý.</li>
             <li><b>Tìm kiếm thông tin nhanh chóng:</b> Tra cứu sách, tác giả hoặc độc giả bằng từ khóa.</li>
         </ul>
-        <p>
-            Ứng dụng được thiết kế với giao diện thân thiện, hình ảnh minh họa sinh động, giúp nhân viên dễ dàng sử dụng.
-            Chúc bạn có trải nghiệm tốt với ứng dụng của chúng tôi. Xin cảm ơn!
-        </p>
       </div>
     </div>
   </template>
@@ -38,14 +34,14 @@ body {
 
 h2 {
     font-size: 2rem;
-    margin-top: 20px;
+    margin-top: 00px;
     color: #333;
 }
 
 img {
     max-width: 60%;
     height: auto;
-    margin: 30px auto; /* Thêm khoảng cách trên/dưới hình */
+    margin: 10px; /* Thêm khoảng cách trên/dưới hình */
     border-radius: 8px; /* Bo góc hình ảnh để tạo cảm giác mềm mại */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
 }
@@ -53,7 +49,7 @@ img {
 ul {
     text-align: left;
     display: inline-block;
-    margin: 30px auto; /* Căn giữa danh sách */
+    margin: 10px auto; /* Căn giữa danh sách */
     padding: 0 20px;
     font-size: 1.2rem; /* Tăng kích thước chữ một chút */
     color: #333;
@@ -71,7 +67,6 @@ p {
 .container {
     max-width: 1200px;
     margin: 0 auto; /* Đảm bảo căn giữa nội dung chính */
-    padding: 20px;
 }
 
 </style>

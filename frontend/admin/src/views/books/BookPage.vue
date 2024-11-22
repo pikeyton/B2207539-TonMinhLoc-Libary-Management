@@ -1,35 +1,36 @@
 <template>
-    <div>
-        <div class="container-top">
-            <greeting :title="title"></greeting>
-            <btn class="btn-add-book" nameBtn="Thêm" @click="addBook"></btn>
-        </div>
-        <SearchBar @search="handleSearch" class="input-search" :searchBy="searchBy" :options="options"></SearchBar>
-        <div class="row">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col" class="image-column">Hình Ảnh</th>
-                        <th scope="col" class="info-column">Thông Tin Sách</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <BookDetailCard
-                        v-for="book in filterBooks"
-                        :key="book._id"
-                        :book="book"
-                        @showDetail="handleShowDetail"
-                        @borrow="handleBorrow"
-                        @edit="handleEdit"
-                        @delete="handleDelete"
-                        @BookPrintRead="handleBookPrintRead"
-                        @BookPrintBorrow="handleBookPrintBorrow"
-                    />
-                </tbody>
-            </table>
-        </div>
+    <div class="container mt-4">
+      <div class="header-section">
+        <Greeting :title="title" />
+        <btn class="btn-add-book" nameBtn="Thêm Sách" @click="addBook" />
+      </div>
+      <SearchBar @search="handleSearch" :searchBy="searchBy" :options="options" />
+  
+      <div class="table-container mt-5">
+        <table class="table table-hover table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col" class="image-column">Hình Ảnh</th>
+              <th scope="col" class="info-column">Thông Tin Sách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <BookDetailCard
+              v-for="book in filterBooks"
+              :key="book._id"
+              :book="book"
+              @showDetail="handleShowDetail"
+              @borrow="handleBorrow"
+              @edit="handleEdit"
+              @delete="handleDelete"
+              @BookPrintRead="handleBookPrintRead"
+              @BookPrintBorrow="handleBookPrintBorrow"
+            />
+          </tbody>
+        </table>
+      </div>
     </div>
-</template>
+  </template>
 
 
 
@@ -198,62 +199,59 @@ export default {
 };
 </script>
 
+
 <style scoped>
-.container-top {
-    text-align: center;
-    padding: 20px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.input-search {
-    margin-bottom: 12px;
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+  padding: 15px 0;
+}
+
+.btn-add-book {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-add-book:hover {
+  background-color: #0056b3;
+}
+
+.table-container {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .table {
-    margin-top: 20px;
-    width: 100%;
-    text-align: left;
-    font-size: 14px;
-    border-collapse: collapse;
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th,
 .table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    vertical-align: middle;
+  text-align: left;
+  padding: 10px;
 }
 
-.image-column {
-    width: 30%; 
-    text-align: center;
-    vertical-align: middle;
+.table thead {
+  background-color: #343a40;
+  color: #fff;
 }
 
-.info-column {
-    width: 70%; 
-}
-
-.book-image {
-    max-width: 90%; 
-    max-height: 400px; 
-    height: auto; 
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.action-buttons {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-.btn-detail,
-.btn-edit,
-.btn-delete {
-    padding: 5px 10px;
-    font-size: 14px;
-    cursor: pointer;
+.table tbody tr:hover {
+  background-color: #f8f9fa;
 }
 </style>
-
-

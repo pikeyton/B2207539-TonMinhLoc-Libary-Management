@@ -5,26 +5,26 @@ const bookFieldSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, 'Book field name is required'],
+            required: [true, 'Tên lĩnh vực sách là bắt buộc'],
             trim: true,
-            minlength: [3, 'Book field name must be at least 3 characters'],
-            maxlength: [50, 'Book field name must be less than 50 characters'],
+            minlength: [3, 'Tên lĩnh vực sách phải có ít nhất 3 ký tự'],
+            maxlength: [50, 'Tên lĩnh vực sách phải ít hơn 50 ký tự'],
             unique: true,
-            match: [/^[A-Za-zÀ-ỹ\s]+$/, 'Book field name can only contain alphabetic characters and spaces']
+            match: [/^[A-Za-zÀ-ỹ\s]+$/, 'Tên lĩnh vực sách chỉ được chứa ký tự chữ và khoảng trắng']
         },
         number: {
             type: Number,
-            required: [true, 'Number of books in book field is required'],
-            min: [1, 'Number must be at least 1'],
-            max: [1000, 'Number must be at most 1000'],
+            required: [true, 'Số lượng sách trong lĩnh vực là bắt buộc'],
+            min: [1, 'Số lượng phải ít nhất là 1'],
+            max: [1000, 'Số lượng không được vượt quá 1000'],
             unique: true,
             validate: {
                 validator: function(value) {
                     return Number.isInteger(value); // Kiểm tra nếu giá trị là số nguyên
                 },
-                message: 'Number must be an integer.'
+                message: 'Số lượng phải là số nguyên.'
             },
-            immutable: [true, 'Number not changeable']
+            immutable: [true, 'Số lượng không được phép thay đổi']
         },   
     },
 );

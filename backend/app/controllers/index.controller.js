@@ -1,6 +1,5 @@
 const BookBorrowRegistration = require('./bookManagement/bookBorrowRgistration.controller')
 const BookBorrowTracking = require('./bookManagement/bookBorrowTracking.controller');
-const BookPurchaseRegistration = require('./bookManagement/bookPurchaseRegistration.controller');
 const Comment = require('./bookManagement/comment.controller');
 
 const Author = require('./system.categorys/author.controller')
@@ -16,7 +15,6 @@ const Staff = require('./users/staff.controller');
 module.exports = {
     BookBorrowRegistration,
     BookBorrowTracking,
-    BookPurchaseRegistration,
     Comment,
 
     Author,
